@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>The Vue Point</title>
+        <link>https://kryushiki.github.io/protagram</link>
+        <description>The official blog for the Vue.js project</description>
+        <lastBuildDate>Wed, 16 Feb 2022 05:11:08 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <image>
+            <title>The Vue Point</title>
+            <url>https://vuejs.org/images/logo.png</url>
+            <link>https://kryushiki.github.io/protagram</link>
+        </image>
+        <copyright>Copyright (c) 2021-present, Yuxi (Evan) You and blog contributors</copyright>
+        <item>
+            <title><![CDATA[vitepressを使ったブログの作成方法]]></title>
+            <link>https://kryushiki.github.io/protagram/posts/20210211.html</link>
+            <guid>https://kryushiki.github.io/protagram/posts/20210211.html</guid>
+            <pubDate>Thu, 11 Feb 2021 12:00:00 GMT</pubDate>
+            <description><![CDATA[<p>このブログはvitepressを使って作られています。こちらではその作成手順について説明します。</p>
+]]></description>
+            <content:encoded><![CDATA[<div><p>このブログはvitepressを使って作られています。こちらではその作成手順について説明します。</p><hr><h2 id="ブログを何で作るか" tabindex="-1">ブログを何で作るか <a class="header-anchor" href="#ブログを何で作るか" aria-hidden="true">#</a></h2><p>今までwordpressを作って作っていた。<br> しかし、ドメインのお金を払い忘れてて一生懸命書いたブログが消えてしまった。<br> そこで今後はドメイン代もレンタルサーバー代を払いたくないのでgithub pagesでブログを運営しようと思った。<br> そうなるとwordpressなどのDBを使ったブログは選択肢から消える。<br> なのでまずは<strong>静的サイトジェネレータ</strong>を選択する。<br><a href="https://fastcoding.jp/blog/all/info/ssg/" target="_blank" rel="noopener noreferrer">【2021注目】フロントエンド開発「静的サイトジェネレータ」</a><br> 主に以下のような種類がある。</p><ul><li>Gatsby(nodeのreact)</li><li>vuepress(nodeのvue)</li><li>Hugo(go)</li><li>Jekyll(ruby)</li><li>Pelican(python)</li></ul><p>どれもマークダウンで記事を書いてそれをコンパイルするみたいなことができるはず。<br> ただコンパイルするときの言語が違うだけだと思う。<br> なのではじめはgithub pagesにデフォルトで入ってるJekyllにしようと思った。<br> でも、カスタムすることも考えると使い慣れた言語のものを選んだ方がいいと思った。<br> 勝手な持論だけどフロントのコンパイルなので、勝手にnodeがいいとも思った。<br> そうなるとGatsbyかvuepressかになるのだが、reactは触ったことがないので膝前的にvuepressを選択することとなった。<br> vuepressにも種類があって</p><ul><li>vuepress v1.x (vuepress)</li><li>vuepress v2.x (vuepress-next)</li><li>vitepress</li></ul><p>ややこしい<br> ただブログのプラグイン(<a href="https://vuepress.vuejs.org/plugin/official/plugin-blog.html#features" target="_blank" rel="noopener noreferrer">plugin-blog</a>)が用意されているのはvuepress v1.xのみだった。<br> しかしthemeをカスタムすれば残りに2つでもブログが実装できることがわかった。<br> ただvuepress v2.xは現在時点(2022/2/11)ではbeta版のみだったので、一旦vue3.0とviteが採用されているVitePressを選ぶことにした。</p><p>ちなみに<strong>ヘッドレスCMS</strong>なるものもあって、記事管理を他サービスに依存するので使うのはやめた。</p><h2 id="vitepressの導入" tabindex="-1">VitePressの導入 <a class="header-anchor" href="#vitepressの導入" aria-hidden="true">#</a></h2><p><a href="https://vitepress.vuejs.org/guide/getting-started.html" target="_blank" rel="noopener noreferrer">VitePress Getting Started</a>を見ればvitepressを導入することはできる。<br> しかしブログ機能はないので、既存のthemeを使うことにする。<br><a href="https://github.com/topics/vitepress-blog" target="_blank" rel="noopener noreferrer">https://github.com/topics/vitepress-blog</a><br> ただVitePressがリリースされたばかりということもあってが、微妙なテーマしかなかった。<br> そこでEvan Youさんが作ったthemeをカスタムして使うことにした。<br><a href="https://github.com/vuejs/blog" target="_blank" rel="noopener noreferrer">https://github.com/vuejs/blog</a><br> まるっとcloneして</p><div class="language-"><pre><code>yarn install
+yarn dev
+</code></pre></div><p>これでとりあえず立ち上がるので、後はよしなにカスタムするだけ。</p></div>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[macにnodeを入れるベストプラクティス]]></title>
+            <link>https://kryushiki.github.io/protagram/posts/20210212.html</link>
+            <guid>https://kryushiki.github.io/protagram/posts/20210212.html</guid>
+            <pubDate>Thu, 11 Feb 2021 12:00:00 GMT</pubDate>
+            <description><![CDATA[<p>macにnodeを入れる方法はいくつかあるが、私の思う最適解を説明する。</p>
+]]></description>
+            <content:encoded><![CDATA[<div><p>macにnodeを入れる方法はいくつかあるが、私の思う最適解を説明する。</p><hr><h2 id="前提" tabindex="-1">前提 <a class="header-anchor" href="#前提" aria-hidden="true">#</a></h2><p>まっさらなmacに導入すること前提としています。 node以外の言語のバージョン管理もすることを前提としてanyenvを入れます。 nodeのバージョン変更を柔軟に行えるようにnodenvでnodeを入れます。</p><h2 id="brewを入れる" tabindex="-1">brewを入れる <a class="header-anchor" href="#brewを入れる" aria-hidden="true">#</a></h2><div class="language-"><pre><code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+
+echo &#39;eval &quot;$(/opt/homebrew/bin/brew shellenv)&quot;&#39; &gt;&gt; ~/.zprofile
+</code></pre></div><p><a href="https://brew.sh/index_ja" target="_blank" rel="noopener noreferrer">brew</a></p><h2 id="brewを使ってanyenvを入れる" tabindex="-1">brewを使ってanyenvを入れる <a class="header-anchor" href="#brewを使ってanyenvを入れる" aria-hidden="true">#</a></h2><div class="language-"><pre><code>brew install anyenv
+anyenv install --init
+echo &#39;eval &quot;$(anyenv init -)&quot;&#39; &gt;&gt; ~/.zshrc
+echo &#39;export PATH=&quot;$HOME/.anyenv/bin:$PATH&quot;&#39; &gt;&gt; ~/.zshrc
+</code></pre></div><p><a href="https://github.com/anyenv/anyenv" target="_blank" rel="noopener noreferrer">anyenv</a></p><h2 id="anyenvを使ってnodeを入れる" tabindex="-1">anyenvを使ってnodeを入れる <a class="header-anchor" href="#anyenvを使ってnodeを入れる" aria-hidden="true">#</a></h2><div class="language-"><pre><code>anyenv install nodenv
+# インストールできるバージョンをチェック
+nodenv install -l
+# インストール
+nodenv install 16.14.0
+# インストールされたバージョンをチェック
+nodenv versions
+# 適応されたかチェック
+node -v
+</code></pre></div><p><a href="https://qiita.com/kyosuke5_20/items/eece817eb283fc9d214f" target="_blank" rel="noopener noreferrer">https://qiita.com/kyosuke5_20/items/eece817eb283fc9d214f</a> 推奨版をチェック <a href="https://nodejs.org/ja/" target="_blank" rel="noopener noreferrer">https://nodejs.org/ja/</a></p><h2 id="nodeに入ってるnpmを使ってyarnを入れる" tabindex="-1">nodeに入ってるnpmを使ってyarnを入れる <a class="header-anchor" href="#nodeに入ってるnpmを使ってyarnを入れる" aria-hidden="true">#</a></h2><div class="language-"><pre><code>npm install --global yarn
+</code></pre></div><p><a href="https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable" target="_blank" rel="noopener noreferrer">yarn</a></p></div>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[SlackのAPI「Outgoing Webhooks」でpostした時に返ってくるエラーを確認する方法]]></title>
+            <link>https://kryushiki.github.io/protagram/posts/201703117.html</link>
+            <guid>https://kryushiki.github.io/protagram/posts/201703117.html</guid>
+            <pubDate>Fri, 17 Mar 2017 12:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Slackで書いたメッセージが設定したキーワードにマッチしていたら、php側にメッセージをpostする。</p>
+]]></description>
+            <content:encoded><![CDATA[<div><p>Slackで書いたメッセージが設定したキーワードにマッチしていたら、php側にメッセージをpostする。</p><hr><p>Slackで書いたメッセージが設定したキーワードにマッチしていたら、php側にメッセージをpostする。 postされた値をごにょごにょする。</p><p>この仕様を実装するためにSlackのAPI「Outgoing Webhooks」を使った。 <a href="https://api.slack.com/custom-integrations/outgoing-webhooks" target="_blank" rel="noopener noreferrer">Outgoing Webhooks</a> ちなみに<a href="https://api.slack.com/incoming-webhooks" target="_blank" rel="noopener noreferrer">Incoming Webhooks</a>というpostされた値を受け取るAPIもある。</p><p>使い方は簡単です。</p><ul><li><a href="https://www.agent-grow.com/self20percent/2016/07/12/our-chatops-system-outgoing-webhook/" target="_blank" rel="noopener noreferrer">SlackのIncoming/OutgoingなWebhookでChatOpsと言い張るなにかを作った話（Outgoing Webhook編）</a></li><li><a href="http://qiita.com/chike0905/items/58222a99be460f325ab8" target="_blank" rel="noopener noreferrer">SlackのOutgoing Webhooksを使って投稿に反応するbotを作る</a></li></ul><p>この辺を見れば出来るはずです。</p><p>しかし、私はこれらのサイトやdocumentなどを呼んでも、うまくポストされなかった。 logを確認しても、</p><div class="language-"><pre><code>at=info method=POST path=&quot;/webhooks-out&quot; host=hoge.herokuapp.com request_id=6243c9c3-2234k-５４２５-95c2-a534534345fd34 fwd=&quot;{ipっぽいの}&quot; dyno=web.1 connect=0ms service=14ms status=500 bytes=16501 protocol=http 
+Apr 30 22:51:58 hoge app/web.1:  {ipっぽいの} - - [01/May/2017:05:51:57 +0000] &quot;POST /webhooks-out HTTP/1.1&quot; 500 15886 &quot;-&quot; &quot;Slackbot 1.0 (+https://api.slack.com/robots) 
+</code></pre></div><p>こんな感じでどこでエラーが起きてるのか、までは特定出来なかった。</p><p>** そこで「<a href="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=ja" target="_blank" rel="noopener noreferrer">Postman</a>」を使った。 ** これはchromeのアプリで、postやgetを設定して送信することで、結果が返ってくる。 使い方の詳細は↓ <a href="http://dev.classmethod.jp/tool/api-test-with-postman-01/" target="_blank" rel="noopener noreferrer">[ツール] Postmanを利用したAPIの試験 [機能の紹介]</a></p><p>これでエラーを見ることが出来て、うまくOutgoing Webhooksからpostされた値を取得することが出来た。 ちなみに問題はlaravelの設定で外部からのpostを受け取らないようにしていたのが原因だった。</p></div>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[WrodPressでアップロードしたメディアファイルをS3に保存して必要に応じてエンコードする方法]]></title>
+            <link>https://kryushiki.github.io/protagram/posts/201703116.html</link>
+            <guid>https://kryushiki.github.io/protagram/posts/201703116.html</guid>
+            <pubDate>Thu, 16 Mar 2017 12:00:00 GMT</pubDate>
+            <description><![CDATA[<p>WrodPressでアップロードしたメディアファイルをS3に保存して必要に応じてエンコードする方法</p>
+]]></description>
+            <content:encoded><![CDATA[<div><p>WrodPressでアップロードしたメディアファイルをS3に保存して必要に応じてエンコードする方法</p><hr><h2 id="要件" tabindex="-1">要件 <a class="header-anchor" href="#要件" aria-hidden="true">#</a></h2><ul><li>wordpressのメディアからアップロードされたファイルをS3に保存</li><li>アップロードされたファイル形式がMOVだった場合mp4にエンコードする</li></ul><hr><h2 id="バケットを作る" tabindex="-1">バケットを作る <a class="header-anchor" href="#バケットを作る" aria-hidden="true">#</a></h2><p>サービスからS3を選択する。 「バケットを作成する」をクリックしてバケットを作成する。 ほぼデフォルトでOK。 バケット名は任意。今回は「<strong>wp-bucket</strong>」とする リージョンは東京とする。</p><h3 id="s3のファイルを一般公開する" tabindex="-1">S3のファイルを一般公開する <a class="header-anchor" href="#s3のファイルを一般公開する" aria-hidden="true">#</a></h3><p>ファイルにアクセスした時にだれでも読み込み出来るように権限を変更する必要がある。 そうしないとwordpress側などからファイルにアクセス出来なくなる。</p><p>【設定手順】</p><ol><li>バケットの「アクセス権限」をクリック</li><li>バケットポリシーをクリック</li><li>バケットポリシーエディターに以下の記述を追加 ※wp-bucketの箇所にはバケット名を入力する。</li></ol><div class="language-"><pre><code>{
+    &quot;Version&quot;: &quot;2012-10-17&quot;,
+    &quot;Statement&quot;: [
+        {
+            &quot;Sid&quot;: &quot;&quot;,
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Principal&quot;: &quot;*&quot;,
+            &quot;Action&quot;: &quot;s3:GetObject&quot;,
+            &quot;Resource&quot;: &quot;arn:aws:s3:::wp-bucket/*&quot;
+        }
+    ]
+}
+</code></pre></div><ol start="4"><li>入力したら保存する。</li></ol><p>参考サイト <a href="http://techtipshoge.blogspot.jp/2016/02/s3.html" target="_blank" rel="noopener noreferrer">http://techtipshoge.blogspot.jp/2016/02/s3.html</a></p><h2 id="パイプラインを作成する" tabindex="-1">パイプラインを作成する <a class="header-anchor" href="#パイプラインを作成する" aria-hidden="true">#</a></h2><ol><li>サービスからElastic Transcoderを選択する。</li><li>「Create a new Pipeline」をクリックする。</li><li>設定値を入力 Pipeline Nameには任意の名前をつける。英語の方がよい 今回は「wpUploadPipeline」とする。 input Bucket、 「Configuration for Amazon S3 Bucket for Transcoded Files and Playlists」のBucket、 「Configuration for Amazon S3 Bucket for Thumbnails」のbucket には全て同じバケットを設定する。今回はwp-bucket それ以外は全部デフォルトのまま。</li></ol><h2 id="roleを作る" tabindex="-1">roleを作る <a class="header-anchor" href="#roleを作る" aria-hidden="true">#</a></h2><p>権限を作る</p><ol><li>サービスからIAMを選択する。</li><li>「ロール」を選択する。</li><li>「新しいロールの作成」をクリック</li><li>ロールタイプの選択 「AWS Lambda」を選択</li><li>ポリシーのアタッチ 何も選択せずに「次のステップ」をクリック</li><li>確認</li></ol><table><thead><tr><th>項目</th><th>値</th></tr></thead><tbody><tr><td>ロール名</td><td>lambda_auto_transcoder_role (今回は←とする)</td></tr><tr><td>Role description</td><td>（空でいい）</td></tr><tr><td>信頼されたエンティティ</td><td>ID プロバイダー <a href="http://lambda.amazonaws.com" target="_blank" rel="noopener noreferrer">lambda.amazonaws.com</a>　（勝手に入ってる）</td></tr><tr><td>ポリシー</td><td>（何も選択しない）</td></tr></tbody></table><ol start="7"><li>先に作成した「lambda_auto_transcoder_role」を選択します。</li><li>インラインポリシーを開いて「表示するインラインポリシーはありません。作成するには、ここをクリックしてください。」のここをクリックする。</li><li>カスタムポリシーにチェックして「選択」する</li><li>ポリシーの確認に値を入力 ポリシー名：lambda_auto_transcoder_role_policy ポリシードキュメント</li></ol><div class="language-"><pre><code>{
+    &quot;Version&quot;: &quot;2012-10-17&quot;,
+    &quot;Statement&quot;: [
+        {
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: [
+                &quot;logs:CreateLogGroup&quot;,
+                &quot;logs:CreateLogStream&quot;,
+                &quot;logs:PutLogEvents&quot;
+            ],
+            &quot;Resource&quot;: &quot;arn:aws:logs:*:*:*&quot;
+        },
+        {
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: [
+                &quot;iam:GetRole&quot;,
+                &quot;iam:PassRole&quot;
+            ],
+            &quot;Resource&quot;: &quot;*&quot;
+        },
+        {
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: [
+                &quot;s3:ListBucket&quot;,
+                &quot;s3:Put*&quot;,
+                &quot;s3:Get*&quot;,
+                &quot;s3:*MultipartUpload*&quot;
+            ],
+            &quot;Resource&quot;: &quot;arn:aws:s3:::*&quot;
+        },
+        {
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: [
+                &quot;elastictranscoder:*&quot;
+            ],
+            &quot;Resource&quot;: &quot;*&quot;
+        },
+        {
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: [
+                &quot;sns:CreateTopic&quot;,
+                &quot;sns:Publish&quot;
+            ],
+            &quot;Resource&quot;: &quot;*&quot;
+        }
+    ]
+}
+</code></pre></div><blockquote><p>なお、以下のポリシーは、AWS Lambda（というか CloudWatch）、S3、Amazon Elastic Transcoder、および Amazon SNS への、今回使う機能でなるべく最小限のアクセスを許可したものになります。</p></blockquote><ol start="10"><li>「ポリシーの適用」をクリック</li><li>「信頼関係」のタブをクリックして「信頼関係の編集」をクリックする</li><li>信頼関係の編集</li></ol><div class="language-"><pre><code>{
+  &quot;Version&quot;: &quot;2012-10-17&quot;,
+  &quot;Statement&quot;: [
+    {
+      &quot;Sid&quot;: &quot;&quot;,
+      &quot;Effect&quot;: &quot;Allow&quot;,
+      &quot;Principal&quot;: {
+        &quot;Service&quot;: [
+          &quot;lambda.amazonaws.com&quot;,
+          &quot;elastictranscoder.amazonaws.com&quot;
+        ]
+      },
+      &quot;Action&quot;: &quot;sts:AssumeRole&quot;
+    }
+  ]
+}
+</code></pre></div><p>これで「<a href="http://elastictranscoder.amazonaws.com" target="_blank" rel="noopener noreferrer">elastictranscoder.amazonaws.com</a>」が追加される。</p><h2 id="lambdaでエンコードの自動化" tabindex="-1">Lambdaでエンコードの自動化 <a class="header-anchor" href="#lambdaでエンコードの自動化" aria-hidden="true">#</a></h2><p>S3にファイルがアップロードされる。 movファイルだった場合Lambdaの処理が走る。 ■処理内容 Elastic TranscoderにアクセスしてJobを作ってそのJobを使ってエンコードする。 今回はmov形式のファイルをmp4にエンコードしたいのでElastic TranscoderのPresetsにある「System preset: Generic 320x240」を使ってエンコードします。</p><p>【設定手順】</p><ol><li>サービスからLambdaを選択。右上からリージョンを東京に変更。ここはバケットで指定したリージョンと合わせる。</li><li>「s3-get-object-python」を選択</li><li>トリガーを設定する ■設定値</li></ol><table><thead><tr><th>項目</th><th>値</th></tr></thead><tbody><tr><td>バケット</td><td>wp-bucket</td></tr><tr><td>イベントタイプ</td><td>オブジェクトの作成 (すべて)</td></tr><tr><td>プレフィックス</td><td>（今回は設定しない。こちらでバケットのディレクトリを限定することが出来る）</td></tr><tr><td>サフィックス</td><td>mov</td></tr><tr><td>これでwp-bucketというバケットにオブジェクトの作成 (すべて)されて、そのファイルが.movというファイルだった時に処理が走るということになる。</td><td></td></tr><tr><td>[トリガーの有効化]にチェックをつける。</td><td></td></tr></tbody></table><blockquote><p>今すぐトリガーを有効化するか、テスト用に無効化した状態でトリガーを作成します (推奨)。</p></blockquote><ol start="4"><li>関数を設定する ■設定値</li></ol><table><thead><tr><th>名前*</th><th>autoTranscoder (任意だが今回はautoTranscoderとする)</th></tr></thead><tbody><tr><td>説明</td><td>(任意)</td></tr><tr><td>ランタイム*</td><td>Python 2.7</td></tr></tbody></table><ol start="5"><li>Lambda 関数のコード コード エントリ タイプは[コードをインラインで編集]のままにして以下のコードを入力します。</li></ol><div class="language-"><pre><code>import boto3
+from botocore.client import ClientError
+import json
+import urllib
+
+REGION_NAME = &#39;ap-northeast-1&#39;
+TRANSCODER_ROLE_NAME = &#39;lambda_auto_transcoder_role&#39;
+PIPELINE_NAME = &#39;wpUploadPipeline&#39;
+OUT_BUCKET_NAME = &#39;wp-bucket&#39;
+COMPLETE_TOPIC_NAME = &#39;test-complete&#39;
+
+print(&#39;Loading function&#39;)
+
+s3 = boto3.resource(&#39;s3&#39;)
+iam = boto3.resource(&#39;iam&#39;)
+sns = boto3.resource(&#39;sns&#39;, REGION_NAME)
+transcoder = boto3.client(&#39;elastictranscoder&#39;, REGION_NAME)
+
+
+def lambda_handler(event, context):
+    #print(&quot;Received event: &quot; + json.dumps(event, indent=2))
+
+    # Get ARN
+    complete_topic_arn = sns.create_topic(Name=COMPLETE_TOPIC_NAME).arn
+    transcoder_role_arn = iam.Role(TRANSCODER_ROLE_NAME).arn
+
+    # Get the object from the event
+    bucket = event[&#39;Records&#39;][0][&#39;s3&#39;][&#39;bucket&#39;][&#39;name&#39;]
+    key = urllib.unquote_plus(event[&#39;Records&#39;][0][&#39;s3&#39;][&#39;object&#39;][&#39;key&#39;]).decode(&#39;utf8&#39;)
+    print(&quot;bucket={}, key={}&quot;.format(bucket, key))
+    try:
+        obj = s3.Object(bucket, key)
+    except Exception as e:
+        print(e)
+        print(&quot;Error getting object {} from bucket {}. Make sure they exist and your bucket is in the same region as this function.&quot;.format(key, bucket))
+        # Publish a message
+        sns.Topic(complete_topic_arn).publish(
+            Subject=&quot;Error!&quot;,
+            Message=&quot;Failed to get object from S3. bucket={}, key={}, {}&quot;.format(bucket, key, e),
+        )
+        raise e
+
+    # Delete inactive pipelines
+    pipeline_ids = [pipeline[&#39;Id&#39;] for pipeline in transcoder.list_pipelines()[&#39;Pipelines&#39;] if pipeline[&#39;Name&#39;] == PIPELINE_NAME]
+    for pipeline_id in pipeline_ids:
+        try:
+            response = transcoder.delete_pipeline(Id=pipeline_id)
+            print(&quot;Delete a transcoder pipeline. pipeline_id={}&quot;.format(pipeline_id))
+            print(&quot;response={}&quot;.format(response))
+        except Exception as e:
+            # Raise nothing
+            print(&quot;Failed to delete a transcoder pipeline. pipeline_id={}&quot;.format(pipeline_id))
+            print(e)
+
+    # Create a pipeline
+    try:
+        response = transcoder.create_pipeline(
+            Name=PIPELINE_NAME,
+            InputBucket=bucket,
+            OutputBucket=OUT_BUCKET_NAME,
+            Role=transcoder_role_arn,
+            Notifications={
+                &#39;Progressing&#39;: &#39;&#39;,
+                &#39;Completed&#39;: complete_topic_arn,
+                &#39;Warning&#39;: &#39;&#39;,
+                &#39;Error&#39;: &#39;&#39;
+            },
+        )
+        pipeline_id = response[&#39;Pipeline&#39;][&#39;Id&#39;]
+        print(&quot;Create a transcoder pipeline. pipeline_id={}&quot;.format(pipeline_id))
+        print(&quot;response={}&quot;.format(response))
+    except Exception as e:
+        print(&quot;Failed to create a transcoder pipeline.&quot;)
+        print(e)
+        # Publish a message
+        sns.Topic(complete_topic_arn).publish(
+            Subject=&quot;Error!&quot;,
+            Message=&quot;Failed to create a transcoder pipeline. bucket={}, key={}, {}&quot;.format(bucket, key, e),
+        )
+        raise e
+
+    # Create a job
+    try:
+        job = transcoder.create_job(
+            PipelineId=pipeline_id,
+            Input={
+                &#39;Key&#39;: key,
+                &#39;FrameRate&#39;: &#39;auto&#39;,
+                &#39;Resolution&#39;: &#39;auto&#39;,
+                &#39;AspectRatio&#39;: &#39;auto&#39;,
+                &#39;Interlaced&#39;: &#39;auto&#39;,
+                &#39;Container&#39;: &#39;auto&#39;,
+            },
+            Outputs=[
+                {
+                    &#39;Key&#39;: &#39;output/{}&#39;.format(&#39;.&#39;.join(key.split(&#39;.&#39;)[:-1])) + &#39;.mp4&#39;,
+                    &#39;PresetId&#39;: &#39;1351620000001-000061&#39;,  # System preset generic 320x240
+                },
+            ],
+        )
+        job_id = job[&#39;Job&#39;][&#39;Id&#39;]
+        print(&quot;Create a transcoder job. job_id={}&quot;.format(job_id))
+        print(&quot;job={}&quot;.format(job))
+    except Exception as e:
+        print(&quot;Failed to create a transcoder job. pipeline_id={}&quot;.format(pipeline_id))
+        print(e)
+        # Publish a message
+        sns.Topic(complete_topic_arn).publish(
+            Subject=&quot;Error!&quot;,
+            Message=&quot;Failed to create transcoder job. pipeline_id={}, {}&quot;.format(pipeline_id, e),
+        )
+        raise e
+
+    return &quot;Success&quot;
+</code></pre></div><blockquote><p>TRANSCODER_ROLE_NAME = &#39;lambda_auto_transcoder_role&#39; PIPELINE_NAME = &#39;wpUploadPipeline&#39; OUT_BUCKET_NAME = &#39;wp-bucket&#39;</p></blockquote><p>はこれまでに作ってきたものの名前に合わせてください。 elastic transcoderにあるPresetsのページにpresetの一覧があるので、そこから使いたいpresetのIDのをコピーして「PresetId」にペーストします。 今回はSystem preset generic 320x240のIDである[1351620000001-000061]を記述しました。 もしcontainerがtsの場合は</p><div class="language-"><pre><code>Outputs=[
+	{
+		&#39;Key&#39;: &#39;output/{}&#39;.format(&#39;.&#39;.join(key.split(&#39;.&#39;)[:-1])),
+		&#39;PresetId&#39;: &#39;1351620000001-200030&#39;,  # System preset: HLS 1M
+		&#39;SegmentDuration&#39;: &#39;10&#39;,
+	},
+],
+</code></pre></div><p>こんな感じで「SegmentDuration」が必要っぽいです。</p><ol start="6"><li>Lambda 関数ハンドラおよびロール 先程作成したロールを選択する。</li></ol><table><thead><tr><th>項目</th><th>設定値</th></tr></thead><tbody><tr><td>ハンドラ*</td><td>lambda_function.lambda_handler</td></tr><tr><td>ロール*</td><td>既存のロールを選択</td></tr><tr><td>既存のロール*</td><td>lambda_auto_transcoder_role</td></tr></tbody></table><ol start="7"><li>詳細設定 実際の処理には 2200ms ほど必要なので、念のため、Advanced settingsで、Timeout を 3秒から 10秒に変更しておきます。</li></ol><table><thead><tr><th>項目</th><th>設定値</th></tr></thead><tbody><tr><td>メモリ (MB)*</td><td>128</td></tr><tr><td>タイムアウト*</td><td>0分10秒</td></tr></tbody></table><ol start="8"><li>後は全部デフォルとのままで「次へ」</li></ol><p>■参考サイト <a href="http://akiyoko.hatenablog.jp/entry/2015/12/03/000100" target="_blank" rel="noopener noreferrer">http://akiyoko.hatenablog.jp/entry/2015/12/03/000100</a></p><h2 id="uploadされたファイルを削除する。" tabindex="-1">uploadされたファイルを削除する。 <a class="header-anchor" href="#uploadされたファイルを削除する。" aria-hidden="true">#</a></h2><p>エンコードされたファイルが生成された後、エンコード前のファイルを削除する。 autoTranscoderにエンコード前のファイルを削除する記述をすると、エンコードされる前にエンコード前のファイルが削除されてしまうので新しく関数を作って、「エンコードされたファイルが生成されたら」というトリガーを作る。 新しく作成した関数の関数名は「deleteInputFunction」とする。 トリガータイプはS3とする。</p><table><thead><tr><th>項目</th><th>値</th></tr></thead><tbody><tr><td>バケット</td><td>wp-bucket</td></tr><tr><td>イベントタイプ</td><td>オブジェクトの作成 (すべて)</td></tr><tr><td>プレフィックス</td><td>output/</td></tr><tr><td>サフィックス</td><td>(空)</td></tr></tbody></table><div class="language-"><pre><code>from __future__ import print_function
+
+import json
+import urllib
+import boto3
+
+print(&#39;Loading function&#39;)
+
+OUT_BUCKET_NAME = &#39;wp-ana&#39;
+
+s3 = boto3.client(&#39;s3&#39;)
+s3client = boto3.client(&#39;s3&#39;)
+
+
+def lambda_handler(event, context):
+    #print(&quot;Received event: &quot; + json.dumps(event, indent=2))
+
+    # Get the object from the event and show its content type
+    bucket = event[&#39;Records&#39;][0][&#39;s3&#39;][&#39;bucket&#39;][&#39;name&#39;]
+    key = urllib.unquote_plus(event[&#39;Records&#39;][0][&#39;s3&#39;][&#39;object&#39;][&#39;key&#39;].encode(&#39;utf8&#39;))
+
+        
+    #delete input file
+    try:
+        inputKey = key.replace(&#39;mp4&#39;, &#39;mov&#39;)
+        inputKey = inputKey.replace(&#39;output/&#39;, &#39;&#39;)
+        response = s3client.delete_object(
+            Bucket=bucket,
+            Key=inputKey
+        )
+        print(bucket)
+        print(inputKey)
+        print(&quot;is deleted&quot;)
+    except Exception as e:
+        print(bucket)
+        print(inputKey)
+        print(&quot;not deleted&quot;)
+        print(e)
+        raise e
+        
+    return &quot;Success&quot;
+</code></pre></div><p>バケットの権限に「DeleteObject」を追加する。</p><div class="language-"><pre><code>{
+    &quot;Version&quot;: &quot;2012-10-17&quot;,
+    &quot;Statement&quot;: [
+        {
+            &quot;Sid&quot;: &quot;&quot;,
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Principal&quot;: &quot;*&quot;,
+            &quot;Action&quot;: [
+                &quot;s3:GetObject&quot;,
+                &quot;s3:DeleteObject&quot;
+            ],
+            &quot;Resource&quot;: &quot;arn:aws:s3:::wp-ana/*&quot;
+        }
+    ]
+}
+</code></pre></div><p>参考サイト <a href="https://boto3.readthedocs.io/en/latest/reference/services/s3.html#S3.Client.delete_object" target="_blank" rel="noopener noreferrer">https://boto3.readthedocs.io/en/latest/reference/services/s3.html#S3.Client.delete_object</a></p><h3 id="ログの見方" tabindex="-1">ログの見方 <a class="header-anchor" href="#ログの見方" aria-hidden="true">#</a></h3><p>関数のページから「モニタリング」のタブをクリックして「CloudWatch のログを表示」をクリック するとログの一覧ページに飛ぶ。</p><hr><h2 id="offload-s3の設定" tabindex="-1">Offload S3の設定 <a class="header-anchor" href="#offload-s3の設定" aria-hidden="true">#</a></h2><p>AWSの右上にある自分のアカウントをクリックして、そこのドロップダウンからセキュリティ認証情報をクリック。 「アクセスキー（アクセスキー ID とシークレットアクセスキー）」を開いて「新しいアクセスキーの作成」をクリック。 「アクセスキーを表示」をクリックして「アクセスキー ID」と「シークレットアクセスキー」をどっかにコピーしておく。 wordpressのAWS→Accsess Keysの「Access Key ID」「Secret Access Key」に先程コピーした内容を貼り付ける。 Save Changesをクリック S3 and CloudFrontをクリックしてBUCKETを指定する。 Remove Files From ServerをオンにすることでWPの入っているサーバーにはアップロードしたファイルは保存されなくなる。</p><h3 id="wordpressからアップした動画ファイルのurlのパスを変更する方法" tabindex="-1">WordPressからアップした動画ファイルのURLのパスを変更する方法 <a class="header-anchor" href="#wordpressからアップした動画ファイルのurlのパスを変更する方法" aria-hidden="true">#</a></h3><p>Offload S3というプラグインを使って、メディアファイルをS3にアップロードするようにしています。 なので動画ファイルのURLにはS3からのフルパスが入ります。 ただmov形式の動画ファイルの場合のみAWS内でmp4形式にエンコードするので、wordpressのパスもエンコード後のパスに変更する必要があります。 ex. 変更前 <code>http://s3.amazonaws.com/baket/uploads/2017/05/15035446/movie.mov</code> 変更後 <code>http://s3.amazonaws.com/baket/output/uploads/2017/05/15035446/movie.mp4</code></p><h4 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-hidden="true">#</a></h4><p>WordPressのDBにS3のパスが保存されるので、DBに保存される前に値を変更する。 ***_postmetaというテーブルのamazonS3_infoというカラムに情報が入っている。 ex.</p><div class="language-"><pre><code>a:3:{s:6:&quot;bucket&quot;;s:6:&quot;baket-name&quot;;s:3:&quot;key&quot;;s:46:&quot;output/uploads/2017/05/16082025/movie.mp4&quot;;s:6:&quot;region&quot;;s:9:&quot;us-east-3&quot;;}
+</code></pre></div><p>Offload S3のプラグインのソースを書き換えます。 amazon-s3-and-cloudfront-pro/classes/amazon-s3-and-cloudfront.php こちらのファイルを書き換えます。 upload_attachment_to_s3という関数の中の <code>add_post_meta( $post_id, &#39;amazonS3_info&#39;, $s3object);</code> の箇所でDB保存しているので、</p><div class="language-"><pre><code>	//s3のエンコード後のパスに変更する為の関数
+	private function s3object_output($s3object){
+		$file_info = pathinfo($s3object[&#39;key&#39;]);
+		$img_extension = strtolower($file_info[&#39;extension&#39;]);
+		if($img_extension == &#39;mov&#39;){
+			$s3object[&#39;key&#39;] = &#39;output/&#39; . str_replace(&quot;.mov&quot;, &quot;.mp4&quot;, $s3object[&#39;key&#39;]);
+		}
+		return $s3object;
+	}
+</code></pre></div><p>という関数を追加して、</p><div class="language-"><pre><code>add_post_meta( $post_id, &#39;amazonS3_info&#39;, $this-&gt;s3object_output($s3object));
+</code></pre></div><p>と書き換えます。 s3object_outputの関数ではもしアップロードしたファイルの拡張子がmovだった場合mp4に変更してディレクトリもoutput/を追加するようにいたしました。</p></div>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[VCCWでサブドメインのマルチサイトを作る方法]]></title>
+            <link>https://kryushiki.github.io/protagram/posts/201703115.html</link>
+            <guid>https://kryushiki.github.io/protagram/posts/201703115.html</guid>
+            <pubDate>Wed, 15 Mar 2017 12:00:00 GMT</pubDate>
+            <description><![CDATA[<p>以前、いくつかのwordpressサイト1つ1つにサブドメインを作ってdocumentrootを割り当ててwordpressを入れてみたいなことをしていました。</p>
+]]></description>
+            <content:encoded><![CDATA[<div><p>以前、いくつかのwordpressサイト1つ1つにサブドメインを作ってdocumentrootを割り当ててwordpressを入れてみたいなことをしていました。</p><hr><h2 id="wordpressをマルチサイト化するに至った経緯" tabindex="-1">wordpressをマルチサイト化するに至った経緯 <a class="header-anchor" href="#wordpressをマルチサイト化するに至った経緯" aria-hidden="true">#</a></h2><p>以前、いくつかのwordpressサイト1つ1つにサブドメインを作ってdocumentrootを割り当ててwordpressを入れてみたいなことをしていました。 そして、ブログ熱に冷めて、1年程サイトを放置していました。 そして久々サイトを更新しようと思いアクセスしたところ、別のサイトが表示されてしまっていました。 どうやら、ドメインのお金を払うのを忘れていて、そのドメインをどっかの業者に買い取られていました。 その業者がドメインを売りに出して居ましたが、胡散臭いので買い戻すことはせず新しくドメインを作り直しました。 SEO的にも強くなっていたドメインだったのでもったいなかったですが…</p><p>ドメインを取得し直して借りていたレンタルサーバーに当てなおそうと思ったら、レンタルサーバーもお金を払うのを忘れていて閉じられて居ました。 今まで頑張って作ったサイトとかブログ記事がなくなってしまいました。 ただ、かろうじて作り途中みたいなwordpressのテーマと古めのDBのバックアップが残って居ました。 DBに入っていた記事を見ると、懐かしくなってきて復活させてあげたく思いました。 そこで新しくwordpressを設置してそこに入っていいた記事だけでも復活させようと思いました。 しかしそこには複数のブログがありました。 なので管理が大変なので1つのwordpressで運用したいと思いました。 そこで調べていたところwordpressにマルチサイトという機能があることを知り、使ってみることにしました。</p><p>長くなりましたが、悔しかったので経緯を書かせていただきました。</p><h2 id="wordpressをマルチサイト化するメリット" tabindex="-1">wordpressをマルチサイト化するメリット <a class="header-anchor" href="#wordpressをマルチサイト化するメリット" aria-hidden="true">#</a></h2><ul><li>一つのwordpressアカウントで複数のサイトの管理画面に入れる。</li><li>wordpressのサイト1つ1つにプラグインを入れる必要がない。</li><li>ソースコードがすごい減る。</li><li>1つのDB、または1つの接頭辞で良くなる。</li></ul><p>デメリットは今のところ、学習コストが少しかかる程度です。</p><h2 id="vccwでサブドメインのマルチサイトを作る方法" tabindex="-1">VCCWでサブドメインのマルチサイトを作る方法 <a class="header-anchor" href="#vccwでサブドメインのマルチサイトを作る方法" aria-hidden="true">#</a></h2><p>今回は、<a href="http://vccw.cc/" target="_blank" rel="noopener noreferrer">VCCW</a>を使ってサブドメインを使ったwordperssマルチサイト化の方法を説明します。</p><p>VCCWを使わないWordPressのマルチサイト化は以下のサイトを見れば分かります。</p><ul><li><a href="https://www.templateking.jp/practical/build/sub_dir.html" target="_blank" rel="noopener noreferrer">複数サイト運用方法(サブディレクトリ型)</a></li><li><a href="https://www.templateking.jp/practical/build/multi_dom.html" target="_blank" rel="noopener noreferrer">複数サイト運用方法(複数ドメイン型)</a></li><li><a href="https://www.templateking.jp/practical/build/sub_dom.html" target="_blank" rel="noopener noreferrer">複数サイト運用方法(サブドメイン型)</a>←今回はコレ</li></ul><h3 id="ローカルに構築" tabindex="-1">ローカルに構築 <a class="header-anchor" href="#ローカルに構築" aria-hidden="true">#</a></h3><p><a href="http://vccw.cc/" target="_blank" rel="noopener noreferrer">VCCW</a>の使い方は分かっているものとして話を進めます。</p><p>まずVCCWのplaybook(今回はsite.yml)の<code>multisite:</code>の箇所を<code>true</code>にします。</p><div class="language-"><pre><code>multisite: true
+</code></pre></div><p>それ以外のsite.ymlとvagrantfileの完了していると仮定します。</p><p><code>vagrant up</code>で立ち上げます。</p><p>設定しているurlにアクセスして、管理画面にログインすると、サイトネットワーク管理の管理画面が表示されているかと思います。 そしたら「設定」の「ネットワークの設定」をクリックします。</p><p>/var/www/html/ にある wp-config.php ファイルと /var/www/html/ にある .htaccessのファイルを編集します。</p><p>「ネットワークの設定」に記載されている内容を各、コピーするだけで良いのですが、 VCCWで&#39;multisite: true&#39;にしていればwp-config.phpの記述はすでにあると思います。 もしない記載があれば追加してあげればいいと思います。 ちなみに <code>define( &#39;SUBDOMAIN_INSTALL&#39;, true );</code>をtrueにするとサブドメイン型になってfalseにするとサブディレクトリ型になります。 ただVCCWではサブドメイン型非推奨っぽいです。</p><p>.htaccessはまるっと上書きして問題無いと思います。</p><p>hostsにサブドメインを追加します。 macの場合</p><div class="language-"><pre><code>sudo vi /private/etc/hosts
+</code></pre></div><p>立ち上げているvagrantで振り当てたIPと同じIPを使ってサブドメインも設定します。 例</p><div class="language-"><pre><code> 192.168.33.11 one.sitename.dev two.sitename.dev three.sitename.dev
+</code></pre></div><p>追加するサブドメインを追加する。</p><p>そしたらサイトネットワーク管理の管理画面に戻り、「サイト」の「新規追加」をクリックします。 以下項目に入力していきます。</p><ul><li>サイトアドレス (URL) hostsで設定したサブドメインをこちらにも設定する。</li><li>サイトのタイトル</li><li>サイトの言語</li><li>管理者メールアドレス</li></ul><p>以上でローカルでの設定は完了です。</p><h3 id="リモート（レンタルサーバーなど）に反映させる。" tabindex="-1">リモート（レンタルサーバーなど）に反映させる。 <a class="header-anchor" href="#リモート（レンタルサーバーなど）に反映させる。" aria-hidden="true">#</a></h3><p>Movefileの設定をします。 詳細は以下のページをご参照ください。 <a href="http://protagram.test/backend/vccw%e3%81%a7wordmove%e3%81%ae%e6%a6%82%e8%a6%81%e3%81%a8%e8%a8%ad%e5%ae%9a%e6%96%b9%e6%b3%95%e3%81%a8%e4%bd%bf%e3%81%84%e6%96%b9" target="_blank" rel="noopener noreferrer">VCCWでのWordMoveの概要と設定方法と使い方</a></p><p><code>wordmove push --all</code>を実行した後、サイトにアクセスしてログインすると以下の画面が表示されます。 <img src="http://protagram.test/wp-content/uploads/2017/04/wp-bdsetting-display-300x184.png" alt="" width="300" height="184" class="alignnone size-medium wp-image-128"> こちらにはMovefileで設定したDBの情報と同じものを入力してください。</p><p>うまく表示されない場合は<code>wordmove push --all</code>を何度か行ってください。</p><p>管理画面にログインすると普通の管理画面が表示されます。 しかしサイトネットワーク管理の管理画面（<a href="http://sitename.com/wp-admin/network/%EF%BC%89%E3%81%AB%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%97%E3%82%88%E3%81%86%E3%81%A8%E3%81%97%E3%81%A6%E3%82%82%E3%80%8C%E3%83%9E%E3%83%AB%E3%83%81%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%81%8C%E6%9C%89%E5%8A%B9%E3%81%A7%E3%81%AF%E3%81%82%E3%82%8A%E3%81%BE%E3%81%9B%E3%82%93%E3%80%82" target="_blank" rel="noopener noreferrer">http://sitename.com/wp-admin/network/）にアクセスしようとしても「マルチサイトのサポートが有効ではありません。</a> 」というエラーが出ます。</p><p>wordmove push --allではwp-config.phpは反映されないからです。 そこでローカルでwp-config.phpを修正した時と同じになります。 ただし以下の行は本番のURLに変更しましょう。 <code>define( &#39;DOMAIN_CURRENT_SITE&#39;, &#39;sitename.dev&#39; );</code> ↓ <code>define( &#39;DOMAIN_CURRENT_SITE&#39;, &#39;sitename.com&#39; );</code></p><p>更にDBにあるURLをリプレイスする必要があります。 <a href="http://sitename.xn--devsitename-z66f.info" target="_blank" rel="noopener noreferrer">sitename.dev→sitename.info</a></p><p>ただSQLで一括置換するのは良くないらしいです。</p><blockquote><p>wp_options や wp_postmeta には、シリアライズされたデータが入っており、そのまま変換するとまずい</p></blockquote><p>詳細はこちら <a href="https://www.infoscoop.org/blogjp/2014/08/14/use-search-and-replace-for-wordpress-when-moving/" target="_blank" rel="noopener noreferrer">WordPress移行時にURLをSQLで直接一括置換はダメ！ 「Search and Replace for WordPress Databases Script」を使おう</a></p><p>なので<a href="https://interconnectit.com/products/search-and-replace-for-wordpress-databases/" target="_blank" rel="noopener noreferrer">Search and Replace for WordPress Databases Script</a>を使います。 こちらの使い方も「<a href="https://www.infoscoop.org/blogjp/2014/08/14/use-search-and-replace-for-wordpress-when-moving/" target="_blank" rel="noopener noreferrer">WordPress移行時にURLをSQLで直接一括置換はダメ！ 「Search and Replace for WordPress Databases Script」を使おう</a>」にかいてあります。</p><h4 id="search-and-replace-for-wordpress-databases-scriptの使い方" tabindex="-1">Search and Replace for WordPress Databases Scriptの使い方 <a class="header-anchor" href="#search-and-replace-for-wordpress-databases-scriptの使い方" aria-hidden="true">#</a></h4><ol><li>「<a href="https://interconnectit.com/products/search-and-replace-for-wordpress-databases/" target="_blank" rel="noopener noreferrer">Search and Replace for WordPress Databases Script</a>」 こちらから「DATABASE SEARCH AND REPLACE SCRIPT IN PHP」をダウンロードします。</li><li>ダウンロードしたzipファイルを開いて、ローカルのwordpressディレクトリの直下に置きます。※ディレクトリは任意の名前に変更してよい。</li><li><code>wordmove push --all</code>を実行して本番にアップします。</li><li><a href="http://sitename.info/Search-Replace-DB-master" target="_blank" rel="noopener noreferrer">sitename.info/Search-Replace-DB-master</a> にアクセス。　※ディレクトリ名を変更していたらその名前に変更。</li><li>フォームが出てくるので上の方にあるreplaceと書いてあるところに置換したいURLを、withのところに置換後のURLを入力する</li><li>「live run」をクリックする。 <img src="http://protagram.test/wp-content/uploads/2017/04/replace-url-300x95.png" alt="" width="300" height="95" class="alignnone size-medium wp-image-135"></li></ol><p>再度、サイトネットワーク管理の管理画面（<a href="http://sitename.com/wp-admin/network/%EF%BC%89%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%99%E3%82%8B%E3%81%A1%E3%82%83%E3%82%93%E3%81%A8%E8%A1%A8%E7%A4%BA%E5%87%BA%E6%9D%A5%E3%82%8B%E3%81%AF%E3%81%9A%E3%81%A7%E3%81%99%E3%80%82" target="_blank" rel="noopener noreferrer">http://sitename.com/wp-admin/network/）アクセスするちゃんと表示出来るはずです。</a></p><p>ただこのままだとセキュリティ上非常にまずいので、Search-Replace-DB-masterにはベーシック認証を設置などする、またはファイルを消すなどした方が良いと思います。</p><p>ただサイトネットワーク管理で設定した、サブドメインを当てたサイトにアクセスしても、表示されない。 これは、レンタルサーバー側からサブドメインのアクセス先も割り当てないといけない。 ロリポップの場合はこちら→<a href="http://okiraku.sub.jp/post-1667" target="_blank" rel="noopener noreferrer">WordPressでマルチサイト化＠ロリポップ！</a></p><p>これでやっとローカルと同じようにサブドメインのURLにアクセスしてもちゃんと表示されるようになる。</p><h3 id="まとめ" tabindex="-1">まとめ <a class="header-anchor" href="#まとめ" aria-hidden="true">#</a></h3><p>本来はローカルで記事とかも書いて、それを<code>wordmove push --all</code>コマンド一発で本番にアップみたいな流れにしたかったのだが、サブドメインを使ったマルチサイトでは、<code>wordmove push --all</code>をした後にDBのURLを変更しなければならない。 手順が増えるのは若干めんどくさい。 また新しくサイトを追加する際には、都度レンタルサーバーの管理画面側から追加しなければならない。</p><p>サブディレクトリ型にすればこういった手順は必要なくなるのか… 試すのめんどくさいので今回は検証するのは辞めておきます。</p><h3 id="参考サイト" tabindex="-1">参考サイト <a class="header-anchor" href="#参考サイト" aria-hidden="true">#</a></h3><p><a href="https://tech.fleeker.net/vccwmultisite/" target="_blank" rel="noopener noreferrer">【ドはまり】VCCWローカル側をマルチサイトに対応させた話</a></p></div>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[MAMPのDBにSequel Proでアクセスする方法]]></title>
+            <link>https://kryushiki.github.io/protagram/posts/201703114.html</link>
+            <guid>https://kryushiki.github.io/protagram/posts/201703114.html</guid>
+            <pubDate>Tue, 14 Mar 2017 12:00:00 GMT</pubDate>
+            <description><![CDATA[<p>MAMPのDBにSequel Proでアクセスする方法</p>
+]]></description>
+            <content:encoded><![CDATA[<div><p>MAMPのDBにSequel Proでアクセスする方法</p><hr><p>Sequel Proの接続先を入力する画面に 標準、ソケット、SSH というタブがあると思うので、<strong>ソケット</strong>を選択</p><p>ユーザー名:root パスワード:root データベース: ソケット:/Applications/MAMP/tmp/mysql/mysql.sock</p><p>これで接続出来ます。</p></div>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[AnsibleのGalaxyでLAMP環境を作る方法]]></title>
+            <link>https://kryushiki.github.io/protagram/posts/201703113.html</link>
+            <guid>https://kryushiki.github.io/protagram/posts/201703113.html</guid>
+            <pubDate>Mon, 13 Mar 2017 12:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Vagrant上にAnsibleを使ってLAMP環境を作る方法を説明します。</p>
+]]></description>
+            <content:encoded><![CDATA[<div><p>Vagrant上にAnsibleを使ってLAMP環境を作る方法を説明します。</p><hr><p>Vagrant上にAnsibleを使ってLAMP環境を作る方法を説明します。</p><p>今回は<a href="https:/galaxy.ansible.com" target="_blank" rel="noopener noreferrer">Galaxy</a>を使います。</p><h2 id="手順" tabindex="-1">手順 <a class="header-anchor" href="#手順" aria-hidden="true">#</a></h2><p>Vagrantは立ち上がっていると仮定して、それ以降の手順を説明する。</p><h3 id="必要なroleをインストールする" tabindex="-1">必要なroleをインストールする <a class="header-anchor" href="#必要なroleをインストールする" aria-hidden="true">#</a></h3><p>使うroleは以下の通りです。</p><ul><li><a href="https://github.com/geerlingguy/ansible-role-apache" target="_blank" rel="noopener noreferrer">geerlingguy/ansible-role-apache</a></li><li><a href="https://github.com/geerlingguy/ansible-role-php" target="_blank" rel="noopener noreferrer">geerlingguy/ansible-role-php</a></li><li><a href="https://github.com/geerlingguy/ansible-role-mysql" target="_blank" rel="noopener noreferrer">geerlingguy/ansible-role-mysql</a></li><li><a href="https://github.com/geerlingguy/ansible-role-composer" target="_blank" rel="noopener noreferrer">geerlingguy/ansible-role-composer</a></li><li><a href="https://github.com/geerlingguy/ansible-role-repo-remi" target="_blank" rel="noopener noreferrer">geerlingguy/ansible-role-repo-remi</a></li></ul><p>これらをダウンロードする。</p><div class="language-"><pre><code>$ ansible-galaxy install --roles-path roles geerlingguy.apache
+$ ansible-galaxy install --roles-path roles geerlingggguy.php
+$ ansible-galaxy install --roles-path roles geerlingguy.mysql
+$ ansible-galaxy install --roles-path roles geerlingguy.composer
+$ ansible-galaxy install --roles-path roles geerlingguy.repo-remi
+</code></pre></div><p><code>--roles-path roles</code>をつけることでrolesというディレクトリ内にダウンロードされる。 たしかrolesというディレクトリがない場合は自動で作ってくれる。</p><h3 id="playbookを作成" tabindex="-1">playbookを作成 <a class="header-anchor" href="#playbookを作成" aria-hidden="true">#</a></h3><p>playbookは任意の名前で良いので今回はlamp.ymlを作成します。 <code>touch lamp.yml</code> そしたらファイルの中身を変更します。 最小限良ければ以下のようになります。</p><div class="language-yaml"><pre><code><span class="token punctuation">---</span>
+<span class="token punctuation">-</span> <span class="token key atrule">hosts</span><span class="token punctuation">:</span> all
+  <span class="token key atrule">roles</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> geerlingguy.mysql
+  <span class="token punctuation">-</span> geerlingguy.apache
+  <span class="token punctuation">-</span> geerlingguy.php
+  <span class="token punctuation">-</span> geerlingguy.php
+  <span class="token punctuation">-</span> geerlingguy.repo<span class="token punctuation">-</span>remi
+  
+</code></pre></div><p>ただこれだけだと後で設定しなくてはいけなくなる箇所が出てくると思うのでとりあえず必要そうな設定を紹介します。</p><div class="language-yaml"><pre><code><span class="token punctuation">---</span>
+<span class="token punctuation">-</span> <span class="token key atrule">hosts</span><span class="token punctuation">:</span> all
+  <span class="token key atrule">become</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">roles</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> geerlingguy.mysql
+      <span class="token key atrule">vars</span><span class="token punctuation">:</span>
+      <span class="token key atrule">mysql_databases</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> dbname <span class="token comment">#dbの名前</span>
+          <span class="token key atrule">collation</span><span class="token punctuation">:</span> utf8_general_ci
+          <span class="token key atrule">encoding</span><span class="token punctuation">:</span> utf8
+          <span class="token key atrule">replicate</span><span class="token punctuation">:</span> <span class="token number">1</span>
+      <span class="token key atrule">mysql_users</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> dbuser　<span class="token comment">#のDBのuser名</span>
+          <span class="token key atrule">host</span><span class="token punctuation">:</span> localhost
+          <span class="token key atrule">password</span><span class="token punctuation">:</span> password <span class="token comment">#DBのuserのパスワード</span>
+          <span class="token key atrule">priv</span><span class="token punctuation">:</span> <span class="token string">&quot;dbname.*:ALL&quot;</span> <span class="token comment">#userの権限 今回の記述でdbuserにdbnameのすべての権限を付与する</span>
+      <span class="token key atrule">tags</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> mysql
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> geerlingguy.apache
+      <span class="token key atrule">vars</span><span class="token punctuation">:</span>
+      <span class="token key atrule">apache_vhosts</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">servername</span><span class="token punctuation">:</span> <span class="token string">&quot;local.dev&quot;</span>
+          <span class="token key atrule">documentroot</span><span class="token punctuation">:</span> <span class="token string">&quot;/var/www/sprix&quot;</span> <span class="token comment">#apacheで設定の設定キュメントルートの設定</span>
+      <span class="token key atrule">tags</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> apache
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> geerlingguy.repo<span class="token punctuation">-</span>remi
+      <span class="token key atrule">vars</span><span class="token punctuation">:</span>
+      <span class="token key atrule">ansible_distribution_major_version</span><span class="token punctuation">:</span> <span class="token number">6</span> <span class="token comment">#CentOS6系という意味の6</span>
+      <span class="token key atrule">tags</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> repo<span class="token punctuation">-</span>remi
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> geerlingguy.php
+      <span class="token key atrule">vars</span><span class="token punctuation">:</span>
+      <span class="token key atrule">php_packages</span><span class="token punctuation">:</span> <span class="token comment">#phpに入れたいパッケージを記述する。</span>
+        <span class="token punctuation">-</span> php<span class="token punctuation">-</span>pdo_mysql
+        <span class="token punctuation">-</span> php<span class="token punctuation">-</span>pecl<span class="token punctuation">-</span>xdebug
+      <span class="token key atrule">php_enablerepo</span><span class="token punctuation">:</span> <span class="token string">&quot;remi&quot;</span>
+      <span class="token key atrule">php_packages_state</span><span class="token punctuation">:</span> latest
+      <span class="token key atrule">php_install_recommends</span><span class="token punctuation">:</span> yes
+      <span class="token key atrule">php_date_timezone</span><span class="token punctuation">:</span> <span class="token string">&quot;Asia/Tokyo&quot;</span>
+      <span class="token key atrule">xdebug_remote_enable</span><span class="token punctuation">:</span> On
+      <span class="token key atrule">xdebug_remote_autostart</span><span class="token punctuation">:</span> On
+      <span class="token key atrule">xdebug_remote_host</span><span class="token punctuation">:</span> 192.168.33.1
+      <span class="token key atrule">xdebug_remote_port</span><span class="token punctuation">:</span> <span class="token number">9000</span>
+      <span class="token key atrule">xdebug_idekey</span><span class="token punctuation">:</span> phpstorm_xdebug <span class="token comment">#任意</span>
+      <span class="token key atrule">xdebug_remote_connect_back</span><span class="token punctuation">:</span> On
+      <span class="token key atrule">tags</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> php
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> geerlingguy.composer
+      <span class="token key atrule">vars</span><span class="token punctuation">:</span>
+      <span class="token key atrule">composer_path</span><span class="token punctuation">:</span> /usr/local/bin/composer
+      <span class="token key atrule">composer_home_path</span><span class="token punctuation">:</span> <span class="token string">&#39;~/.composer&#39;</span>
+      <span class="token key atrule">tags</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> composer
+</code></pre></div><p>roles/{各role} /defaults/main.ymlにデフォルトの設定値が書かれている。 こちらを編集しても良いのだが、出来れば設定値は外に出してあげた方が良いので、必要な箇所だけ取り出してplaybookに記述したほうが良い。</p><h3 id="investroyをダウンロードする" tabindex="-1">investroyをダウンロードする <a class="header-anchor" href="#investroyをダウンロードする" aria-hidden="true">#</a></h3><p>vagrant用のinvestroyをダウンロード <code>curl -O https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/vagrant.py</code></p><h3 id="playbookを実行する。" tabindex="-1">playbookを実行する。 <a class="header-anchor" href="#playbookを実行する。" aria-hidden="true">#</a></h3><p><code>ansible-playbook -i vagrant.py -s lamp.yml</code></p><h4 id="roleを個別に実行したい場合" tabindex="-1">roleを個別に実行したい場合 <a class="header-anchor" href="#roleを個別に実行したい場合" aria-hidden="true">#</a></h4><p>lamp.ymlで設定したtagsを使う。 phpであれば以下のようにして使う。 ex <code>ansible-playbook -i vagrant.py lamp.yml --tags=&quot;php&quot;</code></p><h3 id="参考サイト" tabindex="-1">参考サイト <a class="header-anchor" href="#参考サイト" aria-hidden="true">#</a></h3><ul><li><a href="https://www.jeffgeerling.com/blog/using-ansible-galaxy" target="_blank" rel="noopener noreferrer">https://www.jeffgeerling.com/blog/using-ansible-galaxy</a></li><li><a href="http://knowledge.sakura.ad.jp/tech/3116/" target="_blank" rel="noopener noreferrer">http://knowledge.sakura.ad.jp/tech/3116/</a></li></ul></div>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[bootstrapのハンバーガーメニューにエフェクトをつける方法]]></title>
+            <link>https://kryushiki.github.io/protagram/posts/201703112.html</link>
+            <guid>https://kryushiki.github.io/protagram/posts/201703112.html</guid>
+            <pubDate>Sun, 12 Mar 2017 12:00:00 GMT</pubDate>
+            <description><![CDATA[<p>よく見るハンバーガーメニューのエフェクトは以下のサイトでまとめてくれている。</p>
+]]></description>
+            <content:encoded><![CDATA[<div><p>よく見るハンバーガーメニューのエフェクトは以下のサイトでまとめてくれている。</p><hr><p>よく見るハンバーガーメニューのエフェクトは以下のサイトでまとめてくれている。 <a href="http://www.nxworld.net/tips/10-css-hamburger-menu-icon-design-and-effect.html#" target="_blank" rel="noopener noreferrer">CSSで実装するハンバーガーメニューアイコンの見栄えやクリック・ホバー時のエフェクト 10</a></p><p>このサイトの通りにやれば普通に実装出来るのだが、Bootstrapを使っているならJavaScriptを記述する必要はなくなる。 ただcssの.actionとなっているところをnot:(collapsed)に変更する必要がある。</p><p>html</p><div class="language-"><pre><code>&lt;div class=&quot;pos-f-t&quot;&gt;
+  &lt;div class=&quot;collapse&quot; id=&quot;navbarToggleExternalContent&quot;&gt;
+    &lt;div class=&quot;bg-inverse p-4&quot;&gt;
+      &lt;h4 class=&quot;text-white&quot;&gt;Collapsed content&lt;/h4&gt;
+      &lt;span class=&quot;text-muted&quot;&gt;Toggleable via the navbar brand.&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;nav class=&quot;navbar navbar-inverse bg-inverse&quot;&gt;
+    &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#navbarToggleExternalContent&quot; aria-controls=&quot;navbarToggleExternalContent&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+      &lt;span&gt;&lt;/span&gt;
+      &lt;span&gt;&lt;/span&gt;
+      &lt;span&gt;&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/nav&gt;
+&lt;/div&gt;
+</code></pre></div><p>scss</p><div class="language-"><pre><code>.navbar-toggler-wrapper{
+  padding:7px;
+}
+.navbar-toggler {
+  display: inline-block;
+  transition: all .4s;
+  box-sizing: border-box;
+  span {
+    display: inline-block;
+    transition: all .4s;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: $brand-primary;
+    border-radius: 4px;
+    &amp;:nth-of-type(1) {
+      top: 0;
+    }
+    &amp;:nth-of-type(2) {
+      top: 15px;
+    }
+    &amp;:nth-of-type(3) {
+      bottom: 0;
+    }
+  }
+  position: relative;
+  width: 38px;
+  height: 35px;
+
+  &amp;:focus {
+    outline: none;
+  }
+  //エフェクト部分
+  &amp;:not(.collapsed) span {
+    &amp;:nth-of-type(1) {
+      -webkit-transform: translateY(15px) rotate(-45deg);
+      transform: translateY(15px) rotate(-45deg);
+    }
+    &amp;:nth-of-type(2) {
+      opacity: 0;
+    }
+    &amp;:nth-of-type(3) {
+      -webkit-transform: translateY(-15px) rotate(45deg);
+      transform: translateY(-15px) rotate(45deg);
+    }
+  }
+}
+</code></pre></div></div>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Vagrantのsynced_folderで開発環境に反映されない箇所がある場合の対処法]]></title>
+            <link>https://kryushiki.github.io/protagram/posts/20170311.html</link>
+            <guid>https://kryushiki.github.io/protagram/posts/20170311.html</guid>
+            <pubDate>Sat, 11 Mar 2017 12:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Vagrantのsynced_folderを使うことでローカルで編集した内容が自動でvagrantの仮想環境にアップされます。</p>
+]]></description>
+            <content:encoded><![CDATA[<div><p>Vagrantのsynced_folderを使うことでローカルで編集した内容が自動でvagrantの仮想環境にアップされます。</p><hr><p>Vagrantのsynced_folderを使うことでローカルで編集した内容が自動でvagrantの仮想環境にアップされます。 すごい便利なので毎回使っているのですが、あるファイルを編集していた時、ローカルで編集した内容が一部しか反映されなかったり、なにも反映されなかったりしてて挙動がおかしかったので、調べたところNFSを有効にするにすることで解決出来ました。</p><div class="language-"><pre><code>config.vm.synced_folder &quot;sitename&quot;, &quot;/var/www/sitename&quot;, :nfs =&gt; true
+</code></pre></div><h4 id="参考サイト" tabindex="-1">参考サイト <a class="header-anchor" href="#参考サイト" aria-hidden="true">#</a></h4><p><a href="https://www.d-wood.com/blog/2014/01/29_5357.html" target="_blank" rel="noopener noreferrer">synced_folder 内のファイル変更が認識されない</a></p></div>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[エラーログを確認する方法]]></title>
+            <link>https://kryushiki.github.io/protagram/posts/20170309.html</link>
+            <guid>https://kryushiki.github.io/protagram/posts/20170309.html</guid>
+            <pubDate>Thu, 09 Mar 2017 12:00:00 GMT</pubDate>
+            <description><![CDATA[<p>PHPをスクラッチで書いていたり、独自フレームワークを作った場合ブラウザにエラーが表示されない場合が多いです。
+その場合サーバー内にあるerror_logのファイルを確認するとエラーが起きている箇所が分かる場合があります。</p>
+]]></description>
+            <content:encoded><![CDATA[<div><p>PHPをスクラッチで書いていたり、独自フレームワークを作った場合ブラウザにエラーが表示されない場合が多いです。 その場合サーバー内にあるerror_logのファイルを確認するとエラーが起きている箇所が分かる場合があります。</p><hr><p>PHPをスクラッチで書いていたり、独自フレームワークを作った場合ブラウザにエラーが表示されない場合が多いです。 その場合サーバー内にあるerror_logのファイルを確認するとエラーが起きている箇所が分かる場合があります。</p><div class="language-"><pre><code>$ vagrant ssh #vagrantの場合
+$ sudo su #管理者にならないとlogs以下にアクセス出来ない場合がある
+$ cd /etc/httpd/logs #apacheの場合はだいたいこのディレクトリにあります。
+$ ls
+access_log  error_log  ssl_access_log  ssl_error_log  ssl_request_log
+$ less error_log
+</code></pre></div><p>lessで開いているファイルの一番下には<strong>shilt+d</strong>でいけます。</p></div>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[エラーログを確認する方法]]></title>
+            <link>https://kryushiki.github.io/protagram/posts/20170310.html</link>
+            <guid>https://kryushiki.github.io/protagram/posts/20170310.html</guid>
+            <pubDate>Thu, 09 Mar 2017 12:00:00 GMT</pubDate>
+            <description><![CDATA[<p>PHPをスクラッチで書いていたり、独自フレームワークを作った場合ブラウザにエラーが表示されない場合が多いです。
+その場合サーバー内にあるerror_logのファイルを確認するとエラーが起きている箇所が分かる場合があります。</p>
+]]></description>
+            <content:encoded><![CDATA[<div><p>PHPをスクラッチで書いていたり、独自フレームワークを作った場合ブラウザにエラーが表示されない場合が多いです。 その場合サーバー内にあるerror_logのファイルを確認するとエラーが起きている箇所が分かる場合があります。</p><hr><p>PHPをスクラッチで書いていたり、独自フレームワークを作った場合ブラウザにエラーが表示されない場合が多いです。 その場合サーバー内にあるerror_logのファイルを確認するとエラーが起きている箇所が分かる場合があります。</p><div class="language-"><pre><code>$ vagrant ssh #vagrantの場合
+$ sudo su #管理者にならないとlogs以下にアクセス出来ない場合がある
+$ cd /etc/httpd/logs #apacheの場合はだいたいこのディレクトリにあります。
+$ ls
+access_log  error_log  ssl_access_log  ssl_error_log  ssl_request_log
+$ less error_log
+</code></pre></div><p>lessで開いているファイルの一番下には<strong>shilt+d</strong>でいけます。</p></div>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Sageにnpmでインストールしたjsファイルをwebpackで読み込む方法]]></title>
+            <link>https://kryushiki.github.io/protagram/posts/20170307.html</link>
+            <guid>https://kryushiki.github.io/protagram/posts/20170307.html</guid>
+            <pubDate>Tue, 07 Mar 2017 12:00:00 GMT</pubDate>
+            <description><![CDATA[<p>webpackはGulpやGruntと同じビルドツールです。</p>
+]]></description>
+            <content:encoded><![CDATA[<div><p>webpackはGulpやGruntと同じビルドツールです。</p><hr><p>webpackはGulpやGruntと同じビルドツールです。</p><p>WordpressのスターターテーマであるSageではwabpackが使われています。 その為、JavaScriptを新しく追加したい場合はwabpackで管理する必要があります。</p><p>今回はgoogle-code-prettifyをインストールしてwabpackから追加してみます。 まずはnpmでgoogle-code-prettifyをインストールします。</p><div class="language-"><pre><code>$ npm install google-code-prettify --save-dev
+</code></pre></div><p>次にwabpackにgoogle-code-prettifyを追加します。 <em>assets/build/webpack.config.js</em></p><div class="language-"><pre><code>
+</code></pre></div><p>動作確認 google-code-prettifyでコードを表示させてみる</p><p><strong>参考サイト</strong></p><ul><li><a href="https://ics.media/entry/12140" target="_blank" rel="noopener noreferrer">JS開発で人気のWebpackとは!?</a></li><li><a href="http://dackdive.hateblo.jp/entry/2016/04/13/123000" target="_blank" rel="noopener noreferrer">webpack.config.jsの読み方、書き方</a></li><li><a href="http://www.yoheim.net/blog.php?q=20161201" target="_blank" rel="noopener noreferrer">[フロントエンド] ビルドツールのWebpackに入門する</a></li><li><a href="http://qiita.com/civic/items/82c0184bcadc50965f91#webpack%E3%82%92%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%A6%E3%83%93%E3%83%AB%E3%83%89" target="_blank" rel="noopener noreferrer">npmとwebpackでビルド - jQueryからの次のステップ</a></li></ul></div>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Sageにnpmでインストールしたjsファイルをwebpackで読み込む方法]]></title>
+            <link>https://kryushiki.github.io/protagram/posts/20170308-draft.html</link>
+            <guid>https://kryushiki.github.io/protagram/posts/20170308-draft.html</guid>
+            <pubDate>Tue, 07 Mar 2017 12:00:00 GMT</pubDate>
+            <description><![CDATA[<p>webpackはGulpやGruntと同じビルドツールです。</p>
+]]></description>
+            <content:encoded><![CDATA[<div><p>webpackはGulpやGruntと同じビルドツールです。</p><hr><p>webpackはGulpやGruntと同じビルドツールです。</p><p>WordpressのスターターテーマであるSageではwabpackが使われています。 その為、JavaScriptを新しく追加したい場合はwabpackで管理する必要があります。</p><p>今回はgoogle-code-prettifyをインストールしてwabpackから追加してみます。 まずはnpmでgoogle-code-prettifyをインストールします。</p><div class="language-"><pre><code>$ npm install google-code-prettify --save-dev
+</code></pre></div><p>次にwabpackにgoogle-code-prettifyを追加します。 <em>assets/build/webpack.config.js</em></p><div class="language-"><pre><code>
+</code></pre></div><p>動作確認 google-code-prettifyでコードを表示させてみる</p><p><strong>参考サイト</strong></p><ul><li><a href="https://ics.media/entry/12140" target="_blank" rel="noopener noreferrer">JS開発で人気のWebpackとは!?</a></li><li><a href="http://dackdive.hateblo.jp/entry/2016/04/13/123000" target="_blank" rel="noopener noreferrer">webpack.config.jsの読み方、書き方</a></li><li><a href="http://www.yoheim.net/blog.php?q=20161201" target="_blank" rel="noopener noreferrer">[フロントエンド] ビルドツールのWebpackに入門する</a></li><li><a href="http://qiita.com/civic/items/82c0184bcadc50965f91#webpack%E3%82%92%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%A6%E3%83%93%E3%83%AB%E3%83%89" target="_blank" rel="noopener noreferrer">npmとwebpackでビルド - jQueryからの次のステップ</a></li></ul></div>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[CSSをSCSS/SASSに変換してくれるツール]]></title>
+            <link>https://kryushiki.github.io/protagram/posts/20170306.html</link>
+            <guid>https://kryushiki.github.io/protagram/posts/20170306.html</guid>
+            <pubDate>Mon, 06 Mar 2017 12:00:00 GMT</pubDate>
+            <description><![CDATA[<p>CSS 2 SASS/SCSS CONVERTERの紹介</p>
+]]></description>
+            <content:encoded><![CDATA[<div><p>CSS 2 SASS/SCSS CONVERTERの紹介</p><hr><p><a href="https://github.com/sindresorhus/github-markdown-css" target="_blank" rel="noopener noreferrer">github-markdown-css</a> こちらにあるcssをsassに変換して編集しやすくしようと思いました。 そこでCSS 2 SASS/SCSS CONVERTER <a href="http://css2sass.herokuapp.com/" target="_blank" rel="noopener noreferrer">CSS 2 SASS/SCSS CONVERTER</a> こちらのサイトで変換してくれます。</p><h3 id="使い方" tabindex="-1">使い方 <a class="header-anchor" href="#使い方" aria-hidden="true">#</a></h3><ol><li>左側のCSSの箇所に変換したいCSSを貼る。</li><li>中央にある矢印にカーソルを合わせる。</li><li>SASSとSCSSの選択しがでるので変換したいをクリック</li><li>右側に変換されたコードが生成される</li></ol></div>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[ロリポップレンタルサーバーは外部サーバーからの接続はできない]]></title>
+            <link>https://kryushiki.github.io/protagram/posts/20170305.html</link>
+            <guid>https://kryushiki.github.io/protagram/posts/20170305.html</guid>
+            <pubDate>Sun, 05 Mar 2017 12:00:00 GMT</pubDate>
+            <description><![CDATA[<p>MySQLクライアントソフトのsequel proをを使ってロリポップのDBにアクセスしようとしたのですが出来なかったので、サーバー側の設定かと思いロリポップに問い合わせてみました。</p>
+]]></description>
+            <content:encoded><![CDATA[<div><p>MySQLクライアントソフトのsequel proをを使ってロリポップのDBにアクセスしようとしたのですが出来なかったので、サーバー側の設定かと思いロリポップに問い合わせてみました。</p><hr><p>MySQLクライアントソフトのsequel proをを使ってロリポップのDBにアクセスしようとしたのですが出来なかったので、サーバー側の設定かと思いロリポップに問い合わせてみました。</p><p>質問内容</p><blockquote><p>MySQLクライアントソフトでDBにアクセス出来ないのですが、外部からのアクセスを拒否する設定などなっているのでしょうか？ もしその場合は許可することなどは可能なのでしょうか？ 使っているMySQLクライアントソフトは「sequel pro」になります。 よろしくお願いいたします。</p></blockquote><p>ロリポップからの返答</p><blockquote><p>お問合せいただきました件について、 誠に恐れ入りますが、ロリポップ！のデータベースには 外部サーバーからの接続はできない仕様となっております。</p><p>接続できるのは同契約内のWEBサーバー、SSH、 およびphpMyAdmin からのみでございます。</p><p>本件につきましては、ご希望に添えず恐縮ではございますが、 どうぞよろしくお願いいたします。</p></blockquote><p>ということでロリポップでは「<strong>外部サーバーからの接続はできない</strong>」そうです。</p></div>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[VCCWでのWordMoveの概要と設定方法と使い方]]></title>
+            <link>https://kryushiki.github.io/protagram/posts/20170304.html</link>
+            <guid>https://kryushiki.github.io/protagram/posts/20170304.html</guid>
+            <pubDate>Sat, 04 Mar 2017 12:00:00 GMT</pubDate>
+            <description><![CDATA[<p>VCCWはvagrantでWordPressの環境を簡単に構築するためのものなのですが、VCCWにはWordMoveという便利ツールが入っています。</p>
+]]></description>
+            <content:encoded><![CDATA[<div><p>VCCWはvagrantでWordPressの環境を簡単に構築するためのものなのですが、VCCWにはWordMoveという便利ツールが入っています。</p><hr><p>VCCWはvagrantでWordPressの環境を簡単に構築するためのものなのですが、VCCWにはWordMoveという便利ツールが入っています。</p><h2 id="wordmoveとは" tabindex="-1">WordMoveとは <a class="header-anchor" href="#wordmoveとは" aria-hidden="true">#</a></h2><p>WordMoveはコマンド１つでWorｄPressがある開発環境と本番環境を同期してくれるツールです。 指定のディレクトリでコマンドを実行するとテーマだけでなく<strong>プラグイン</strong>や<strong>DB</strong>や<strong>メディア</strong>なども全てデプロイされます。</p><h2 id="wordmoveのメリット" tabindex="-1">WordMoveのメリット <a class="header-anchor" href="#wordmoveのメリット" aria-hidden="true">#</a></h2><p>WordPressで開発環境を作っても本番環境で記事などを更新すると開発環境と本番環境でズレが生じてきてします。 そのズレを直すために毎回管理画面で設定を変更したり、記事を更新したりするのはとてもめんどくさい。 そのズレをコマンド一発で同期されるのでWordMoveはすごい便利です。</p><p>またこまめに開発環境と本番環境で同期を取ることでバックアップにもなります。 私は記事を書く際も開発環境で書いてそれを本番に同期させるようにしています。</p><p>以前にサーバーのお金を払い忘れて今まで書いていた記事やソースが全て消えたてショックだったので、バックアップはローカルで取りたいと思い、模索した結果WrodMoveに行き着きました。</p><h2 id="使い方" tabindex="-1">使い方 <a class="header-anchor" href="#使い方" aria-hidden="true">#</a></h2><h4 id="vccwで開発環境を構築する" tabindex="-1">VCCWで開発環境を構築する <a class="header-anchor" href="#vccwで開発環境を構築する" aria-hidden="true">#</a></h4><p>別の記事にVCCWでのWrodPressの開発環境の構築方法を記載します。 coming soon</p><h4 id="mordmoveの設定" tabindex="-1">MordMoveの設定 <a class="header-anchor" href="#mordmoveの設定" aria-hidden="true">#</a></h4><p>MordMoveの設定には開発環境と本番環境のSSHの情報とDBの情報が必要となる。 開発環境の情報はVCCWで構築していればplaybookに全て書いてある。 本番環境の情報はレンタルサーバーであればそこの管理画面などから探す必要がある。</p><p>まず<strong>Movefile</strong>を編集する 変更が必要な箇所についてはコメントを残しておいたので参照してください。</p><div class="language-"><pre><code>local:
+  vhost: &quot;http://example.dev&quot; #本番環境のドメイン
+  wordpress_path: &quot;/var/www/html&quot; # 開発環境でのWordPressが入っているディレクトリのフルパス #VCCWでplaybookを変更していなければデフォルトのままでOK
+  database:
+    name: &quot;dbname&quot; #開発環境のDBのデータベース名
+    user: &quot;dbuser&quot; #開発環境のDBのユーザー名
+    password: &quot;dbpassward&quot; #開発環境のDBのユーザー名のパスワード
+    host: &quot;localhost&quot;
+    charset: &quot;utf8&quot;
+
+  # paths: # you can customize wordpress internal paths
+  #   wp_content: &quot;wp-content&quot;
+  #   uploads: &quot;wp-content/uploads&quot;
+  #   plugins: &quot;wp-content/plugins&quot;
+  #   mu_plugins: &quot;wp-content/mu-plugins&quot;
+  #   themes: &quot;wp-content/themes&quot;
+  #   languages: &quot;wp-content/languages&quot;
+
+production:
+  vhost: &quot;http://example.com&quot; #本番環境のドメイン
+  wordpress_path: &quot;/home/users/3/username/web/protagram&quot; #本番環境のWordPressが入っているディレクトリのフルパス
+
+  database:
+    name: &quot;dbname&quot; #本番環境のDBのデータベース名
+    user: &quot;dbuser&quot; #本番環境のDBのユーザー名
+    password: &quot;dbpassward&quot; #本番環境のDBのユーザー名のパスワード
+    host: &quot;host&quot; #本番環境のDBのホスト
+    #port: &quot;3308&quot; # デフォルトでこの記述があったでそのままにしていたら接続できなかったので削除するかコメントアウトする必要がある
+    mysqldump_options: &quot;--max_allowed_packet=50MB&quot; # Only available if using SSH
+
+  exclude:
+    - &quot;.git/&quot;
+    - &quot;.gitignore&quot;
+    - &quot;.sass-cache/&quot;
+    - &quot;bin/&quot;
+    - &quot;tmp/*&quot;
+    - &quot;Gemfile*&quot;
+    - &quot;Movefile&quot;
+    - &quot;wp-config.php&quot;
+    - &quot;wp-content/*.sql&quot;
+    - &quot;.htaccess&quot; #追記した
+
+  ssh:
+    host: &quot;2222.22222.jp&quot; #本番環境のSSHのhost
+    user: &quot;2222user&quot; #本番環境のSSHのuser名
+    password: &quot;password&quot; #デフォルトではこの項目は無かったが追記しておいた。
+    port: &quot;2222&quot; #本番環境のSSHのport
+    rsync_options: --verbose
+
+</code></pre></div><p><a href="https://lolipop.jp/" target="_blank" rel="noopener noreferrer">ロリポップ</a>の場合は以下のサイトがとてもわかり易く設定方法を書いてくれていた。 <a href="http://wpwand.com/migrate-between-remote-to-local/" target="_blank" rel="noopener noreferrer">WordmoveでリモートWordPressサイトをローカル環境に転送する</a></p><p>さくらサーバーの場合は以下のサイトがとてもわかり易く設定方法を書いてくれていた。 <a href="https://www.d-wood.com/blog/2016/02/26_7816.html" target="_blank" rel="noopener noreferrer">[WordPress] VCCW + WordMove でローカルの WordPress をサーバと同期する</a></p><h4 id="wrodmoveでデプロイする方法" tabindex="-1">WrodMoveでデプロイする方法 <a class="header-anchor" href="#wrodmoveでデプロイする方法" aria-hidden="true">#</a></h4><p>開発環境のsshに入る</p><div class="language-"><pre><code>vagrant ssh
+</code></pre></div><p>vagrantディレクトリに移動する</p><div class="language-"><pre><code>cd /vagrant
+</code></pre></div><p>開発環境を本番環境に同期する場合</p><div class="language-"><pre><code>wordmove push --all
+</code></pre></div><p>本番環境を開発環境に同期する場合</p><div class="language-"><pre><code>wordmove pull --all
+</code></pre></div></div>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[オススメのWordpressのスターターテーマ紹介]]></title>
+            <link>https://kryushiki.github.io/protagram/posts/20170303.html</link>
+            <guid>https://kryushiki.github.io/protagram/posts/20170303.html</guid>
+            <pubDate>Fri, 03 Mar 2017 12:00:00 GMT</pubDate>
+            <description><![CDATA[<p>WrodPressのテーマをゼロから作りたい場合でもスターターテーマを使うことをオススメします。
+またカスタマイズしたい度合いやスキルによってスターターテーマを使い分けることをオススメします。</p>
+]]></description>
+            <content:encoded><![CDATA[<div><p>WrodPressのテーマをゼロから作りたい場合でもスターターテーマを使うことをオススメします。 またカスタマイズしたい度合いやスキルによってスターターテーマを使い分けることをオススメします。</p><hr><p>WrodPressのテーマをゼロから作りたい場合でもスターターテーマを使うことをオススメします。 またカスタマイズしたい度合いやスキルによってスターターテーマを使い分けることをオススメします。</p><h2 id="sage" tabindex="-1">Sage <a class="header-anchor" href="#sage" aria-hidden="true">#</a></h2><p><a href="https://roots.io/sage/" target="_blank" rel="noopener noreferrer">https://roots.io/sage/</a></p><table class="table"><tbody><tr><th class="text-right">初期完成度</th><td style="width:50%;"><div class="progress"><div class="progress-bar" role="progressbar" style="width:20%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div><div class="progress-bar bg-info" role="progressbar" style="width:80%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div></div></td><th>柔軟性</th></tr><tr><th class="text-right">学習コスト</th><td><div class="progress"><div class="progress-bar" role="progressbar" style="width:90%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div></div></td><th></th></tr><tr><th class="text-right">開発速度</th><td><div class="progress"><div class="progress-bar" role="progressbar" style="width:85%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div></div></td><th></th></tr></tbody></table> [Sage](https://roots.io/sage/)はコマンドの操作に慣れていないと扱うのが難しいテーマになります。 またgulp、やSASS、を使うことが推奨されていて、テンプレートも[Blade](https://laravel.com/docs/5.3/blade)というテンプレートエンジンで作られています。 LIGでも[WordPressで「Blade」テンプレートエンジンを使おう！](https://liginc.co.jp/web/programming/php/152804)という記事が作られていました。 <p>こういったツールが元々組み込まれているので、これらの扱いに慣れている人、またはモダンな開発を勉強したい人にもオススメのフレームワークです。</p><p>ちなみにこのサイトもSageを使いました。</p><p><strong>おすすめポイント</strong></p><ul><li>SASSが使える</li><li>Bladeで作られている</li><li>Bootstrap4が入っている</li><li>開発が盛ん</li><li>アメリカ政府で採用されている</li><li>なれれば開発スピードが上がる</li></ul><p><strong>ざんねんポイント</strong></p><ul><li>学習コストがかかる</li><li>アメリカ製なのでドキュメントがすべて英語</li><li>初めのテンプレートが本当に骨組みだけなので、結構作り込まなくては行けない。</li></ul><p><strong>まとめ</strong><em>Sage</em>を使いこなせればが開発スピードが上がると思いますが、初めの学習コストは結構掛かりそうです。 なのでガッツリカスタマイズする場合は良いですが、それ以外の場合は微妙かもしれません。</p><p>参考サイト <a href="http://shintaro-kawase.hatenablog.com/entry/2016/06/05/035645" target="_blank" rel="noopener noreferrer">Wordpressのブランクテーマ「Sage」を使って見た</a><a href="https://capitalp.jp/2017/01/20/sage-beta/" target="_blank" rel="noopener noreferrer">WordPress のスターターテーマ Sage のベータ版がリリース</a></p><h2 id="understrap" tabindex="-1">UnderStrap <a class="header-anchor" href="#understrap" aria-hidden="true">#</a></h2><p><a href="https://understrap.com/" target="_blank" rel="noopener noreferrer">https://understrap.com/</a><table class="table"><tbody><tr><th class="text-right">初期完成度</th><td style="width:50%;"><div class="progress"><div class="progress-bar" role="progressbar" style="width:50%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div><div class="progress-bar bg-info" role="progressbar" style="width:50%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div></div></td><th>柔軟性</th></tr><tr><th class="text-right">学習コスト</th><td><div class="progress"><div class="progress-bar" role="progressbar" style="width:45%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div></div></td><th></th></tr><tr><th class="text-right">開発速度</th><td><div class="progress"><div class="progress-bar" role="progressbar" style="width:70%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div></div></td><th></th></tr></tbody></table> bootstrapのみでシンプルに作られたテーマです。 Underscores starter themeとBootstrap 4 Grid frameworkが組み合わされています。 なのでbootsptrapからデザインしていく時に便利なスターターテーマです。 子テーマも用意されていたりします。 gulp,SASSも用意されています。</p><h2 id="understrap-1" tabindex="-1">UnderStrap <a class="header-anchor" href="#understrap-1" aria-hidden="true">#</a></h2><p><a href="https://understrap.com/" target="_blank" rel="noopener noreferrer">https://understrap.com/</a><table class="table"><tbody><tr><th class="text-right">初期完成度</th><td style="width:50%;"><div class="progress"><div class="progress-bar" role="progressbar" style="width:50%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div><div class="progress-bar bg-info" role="progressbar" style="width:50%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div></div></td><th>柔軟性</th></tr><tr><th class="text-right">学習コスト</th><td><div class="progress"><div class="progress-bar" role="progressbar" style="width:45%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div></div></td><th></th></tr><tr><th class="text-right">開発速度</th><td><div class="progress"><div class="progress-bar" role="progressbar" style="width:70%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div></div></td><th></th></tr></tbody></table> bootstrapのみでシンプルに作られたテーマです。 Underscores starter themeとBootstrap 4 Grid frameworkが組み合わされています。 なのでbootsptrapからデザインしていく時に便利なスターターテーマです。 子テーマも用意されていたりします。 gulp,SASSも用意されています。</p><h2 id="sparkling" tabindex="-1">Sparkling <a class="header-anchor" href="#sparkling" aria-hidden="true">#</a></h2><p><a href="https://colorlib.com/wp/themes/sparkling/" target="_blank" rel="noopener noreferrer">https://colorlib.com/wp/themes/sparkling/</a><table class="table"><tbody><tr><th class="text-right">初期完成度</th><td style="width:50%;"><div class="progress"><div class="progress-bar" role="progressbar" style="width:80%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div><div class="progress-bar bg-info" role="progressbar" style="width:20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div></div></td><th>柔軟性</th></tr><tr><th class="text-right">学習コスト</th><td><div class="progress"><div class="progress-bar" role="progressbar" style="width:23%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div></div></td><th></th></tr><tr><th class="text-right">開発速度</th><td><div class="progress"><div class="progress-bar" role="progressbar" style="width:40%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div></div></td><th></th></tr></tbody></table> bootstrapでちょこちょこカスタマイズしたい人にオススメです。</p><h2 id="simplicity" tabindex="-1">Simplicity <a class="header-anchor" href="#simplicity" aria-hidden="true">#</a></h2><p><a href="https://wp-simplicity.com/" target="_blank" rel="noopener noreferrer">https://wp-simplicity.com/</a><table class="table"><tbody><tr><th class="text-right">初期完成度</th><td style="width:50%;"><div class="progress"><div class="progress-bar" role="progressbar" style="width:85%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div><div class="progress-bar bg-info" role="progressbar" style="width:15%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div></div></td><th>柔軟性</th></tr><tr><th class="text-right">学習コスト</th><td><div class="progress"><div class="progress-bar" role="progressbar" style="width:23%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div></div></td><th></th></tr><tr><th class="text-right">開発速度</th><td><div class="progress"><div class="progress-bar" role="progressbar" style="width:40%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div></div></td><th></th></tr></tbody></table></p><p>ブログサイトを作るのであればカスタマイズせずに使えます。 簡単なカスタマイズであれば管理画面でも出来るようになっています。</p><p><strong>おすすめポイント</strong></p><blockquote><ul><li>シンプル</li></ul></blockquote><ul><li>内部SEO施策済み</li><li>拡散のための仕掛けが施されている</li><li>端末に合わせた4つのレスポンシブスタイル</li><li>手軽に収益化</li><li>ブログの主役はあくまで本文</li><li>カスタマイズがしやすい</li><li>ドキュメントが日本語</li></ul><h2 id="stinger" tabindex="-1">STINGER <a class="header-anchor" href="#stinger" aria-hidden="true">#</a></h2><p><a href="http://wp-fun.com/" target="_blank" rel="noopener noreferrer">http://wp-fun.com/</a><table class="table"><tbody><tr><th class="text-right">初期完成度</th><td style="width:50%;"><div class="progress"><div class="progress-bar" role="progressbar" style="width:88%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div><div class="progress-bar bg-info" role="progressbar" style="width:12%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div></div></td><th>柔軟性</th></tr><tr><th class="text-right">学習コスト</th><td><div class="progress"><div class="progress-bar" role="progressbar" style="width:10%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div></div></td><th></th></tr><tr><th class="text-right">開発速度</th><td><div class="progress"><div class="progress-bar" role="progressbar" style="width:40%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div></div></td><th></th></tr></tbody></table></p><p>結構昔からある日本では有名なテーマだと思います。 アフィリエイターに人気です。</p><h2 id="その他" tabindex="-1">その他 <a class="header-anchor" href="#その他" aria-hidden="true">#</a></h2><p><a href="https://colorlib.com/wp/free-wordpress-themes/" target="_blank" rel="noopener noreferrer">50+ Beautiful &amp; Free Responsive WordPress Themes to Build Awesome Websites 2017</a><a href="https://www.webtoolnavi.com/japanese-wordpress-theme-10/" target="_blank" rel="noopener noreferrer">日本語対応の無料WordPressテーマ10選</a></p></div>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[vagrantでapacheの再起動ができない時の対処法]]></title>
+            <link>https://kryushiki.github.io/protagram/posts/20170302.html</link>
+            <guid>https://kryushiki.github.io/protagram/posts/20170302.html</guid>
+            <pubDate>Thu, 02 Mar 2017 12:00:00 GMT</pubDate>
+            <description><![CDATA[<p>vagrant実行中にパソコンを再起動してしまい、vagrantが中断していたのでvagrant upし直してたのですが、サイトが表示されなかったのでapacheを再起動したところstartに失敗しました。</p>
+]]></description>
+            <content:encoded><![CDATA[<div><p>vagrant実行中にパソコンを再起動してしまい、vagrantが中断していたのでvagrant upし直してたのですが、サイトが表示されなかったのでapacheを再起動したところstartに失敗しました。</p><hr><p>vagrant実行中にパソコンを再起動してしまい、vagrantが中断していたのでvagrant upし直してたのですが、サイトが表示されなかったのでapacheを再起動したところstartに失敗しました。その時のエラーが以下です。</p><h2 id="エラー内容" tabindex="-1">エラー内容 <a class="header-anchor" href="#エラー内容" aria-hidden="true">#</a></h2><div class="language-"><pre><code>$ service httpd restart
+Stopping httpd:                                            [  OK  ]
+Starting httpd: (98)Address already in use: make_sock: could not bind to address [::]:80
+(98)Address already in use: make_sock: could not bind to address 0.0.0.0:80
+no listening sockets available, shutting down
+Unable to open logs
+                                                           [FAILED]
+</code></pre></div><h2 id="解決方法" tabindex="-1">解決方法 <a class="header-anchor" href="#解決方法" aria-hidden="true">#</a></h2><p>ポートを占領しているプロセスを確認 <code>$ sudo lsof -i | grep http</code></p><p>以下の文言が帰ってきた場合はlsofをインストールする <code>sudo: lsof: command not found</code></p><p>以下のコマンドでlsofをインストール <code>sudo yum install lsof</code> もともとインストールされていれば実行する必要はない</p><p>再度プロセスを確認</p><blockquote><p></p></blockquote><div class="language-"><pre><code>$ sudo lsof -i | grep http
+httpd    27512   apache    4u  IPv6  90360      0t0  TCP *:http (LISTEN)
+httpd    27520   apache    4u  IPv6  90360      0t0  TCP *:http (LISTEN)
+</code></pre></div><p>プロセスをkillする</p><blockquote></blockquote><div class="language-"><pre><code>$ sudo kill -9 27512
+$ sudo kill -9 27520
+</code></pre></div><p>表示されたプロセスすべてを消して問題ない</p><p><code>service httpd restart</code></p><p>これでうまく行った。</p><h3 id="参考サイト" tabindex="-1">参考サイト <a class="header-anchor" href="#参考サイト" aria-hidden="true">#</a></h3><p><a href="http://qiita.com/ysk24ok/items/ffe8d5d1479aaf5afeaa" target="_blank" rel="noopener noreferrer">他プロセスがポートを占有してhttpdを再起動できない</a><a href="http://tweeeety.hateblo.jp/entry/20131209/1386595047" target="_blank" rel="noopener noreferrer">lsofコマンドでポートを使用しているプロセスを確認するメモ</a></p></div>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[sageの使い方（設定方法）]]></title>
+            <link>https://kryushiki.github.io/protagram/posts/20170301.html</link>
+            <guid>https://kryushiki.github.io/protagram/posts/20170301.html</guid>
+            <pubDate>Wed, 01 Mar 2017 12:00:00 GMT</pubDate>
+            <description><![CDATA[<p>WordPressのスターターテーマはいくつかあるのですが、今回は<em>Sage</em>というテーマの設定方法について説明します。</p>
+]]></description>
+            <content:encoded><![CDATA[<div><p>WordPressのスターターテーマはいくつかあるのですが、今回は<em>Sage</em>というテーマの設定方法について説明します。</p><hr><p>普通のWordPressのテーマならThemeのディレクトリにテーマを入れるか、管理画面のテーマからダウンロードすればそれでOKなのですが<em>Sage</em>の場合それだけでは表示もされません。</p><p>テンプレートにテンプレートエンジンのbladeが使っているのでComposerを入れないと動かないのです。 それ以外にもnpmでもダウンロードしない<em>Sage</em>で用意してくれている機能が使えません。</p><h3 id="sageをダウンロード" tabindex="-1">Sageをダウンロード <a class="header-anchor" href="#sageをダウンロード" aria-hidden="true">#</a></h3><p>WordPressのｔｈemeディレクトリまで移動してgitからクローンします。</p><div class="language-"><pre><code>git clone https://github.com/roots/sage.git
+</code></pre></div><h3 id="composer-installを実行する" tabindex="-1">composer installを実行する <a class="header-anchor" href="#composer-installを実行する" aria-hidden="true">#</a></h3><p>composer.jsonはすでに用意されているのでcomposer installでファイルを落としてくるだけで良い</p><div class="language-"><pre><code>composer install
+</code></pre></div><p>PCにComposerがインストールされていない場合はまずComposerをPCにインストールする必要があります。</p><h3 id="パッケージのインストール" tabindex="-1">パッケージのインストール <a class="header-anchor" href="#パッケージのインストール" aria-hidden="true">#</a></h3><p>ここでつまったのですがSageのドキュメントが古かったです。 <a href="https://roots.io/sage/docs/theme-development-and-building/" target="_blank" rel="noopener noreferrer">Theme Development and Building</a></p><div class="language-"><pre><code>$ Theme Development and Building
+$ npm install -g gulp bower
+$ npm install
+$ bower install
+</code></pre></div><p>こんなようなことが書いてあるのですが、これは古いバージョンでした(2017/4/2現在)</p><p><em>正しく</em>は<a href="https://github.com/roots/sage" target="_blank" rel="noopener noreferrer">GitのREADME.md</a>に書いてありました。</p><h4 id="yarnをインストール-yarnがインストールしてある場合はスキップ" tabindex="-1">Yarnをインストール(Yarnがインストールしてある場合はスキップ) <a class="header-anchor" href="#yarnをインストール-yarnがインストールしてある場合はスキップ" aria-hidden="true">#</a></h4><p>macの場合</p><div class="language-"><pre><code>$ brew update
+$ brew install yarn
+</code></pre></div><p>windowsは以下で出来るっぽいです。</p><div class="language-"><pre><code>$ npm instlal -g yarn
+</code></pre></div><h4 id="yarnを実行" tabindex="-1">Yarnを実行 <a class="header-anchor" href="#yarnを実行" aria-hidden="true">#</a></h4><div class="language-"><pre><code>$ yarn
+</code></pre></div><p>これでnpmも裏で実行されてpackage.jsonに記述されているパッケージをダウンロードすることができます。</p><p>yarnって何かはよく分かっていません汗</p><h4 id="細かい設定" tabindex="-1">細かい設定 <a class="header-anchor" href="#細かい設定" aria-hidden="true">#</a></h4><h5 id="sidebarを表示する" tabindex="-1">sidebarを表示する <a class="header-anchor" href="#sidebarを表示する" aria-hidden="true">#</a></h5><p>sage/src/helpers.php</p><div class="language-"><pre><code>/**
+ * Determine whether to show the sidebar
+ * @return bool
+ */
+function display_sidebar()
+{
+    static $display;
+    isset($display) || $display = apply_filters(&#39;sage/display_sidebar&#39;, true); //←ここをtrueに変更
+    return $display;
+}
+</code></pre></div><p>cssで表示位置を修正しないとメインカラムの下に表示される。</p><hr><p>とりあえずここまでやれば一応画面に表示されるようになります。</p><p>ただthemeをカスタマイズするには<em>SASS</em>や<em>blade</em>,<em>gulp</em>などの知識が必要となりそうです。</p></div>]]></content:encoded>
+        </item>
+    </channel>
+</rss>

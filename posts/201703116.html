@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>WrodPressでアップロードしたメディアファイルをS3に保存して必要に応じてエンコードする方法 | The Vue Point</title>
+    <meta name="description" content="The offical blog for the Vue.js project">
+    <link rel="stylesheet" href="/assets/style.af0878d8.css">
+    <link rel="modulepreload" href="/assets/app.505c8123.js">
+    <link rel="modulepreload" href="/assets/posts_201703116.md.0aec5ec9.lean.js">
+    
+    <meta name="twitter:site" content="@vuejs">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://vuejs.org/images/logo.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <script src="https://cdn.usefathom.com/script.js" data-site="NYHGSGQV" defer=""></script>
+  <meta name="twitter:title" content="WrodPressでアップロードしたメディアファイルをS3に保存して必要に応じてエンコードする方法 | The Vue Point">
+  <meta property="og:title" content="WrodPressでアップロードしたメディアファイルをS3に保存して必要に応じてエンコードする方法 | The Vue Point">
+  </head>
+  <body>
+    <div id="app"><div class="antialiased"><div class="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0"><nav class="flex justify-between items-center py-10 font-bold"><a class="text-xl" href="/" aria-label="PROTAGRAM"><img class="inline-block mr-2" style="width:36px;height:31px;" alt="logo" src="/logo.svg"><span class="hidden md:inline">PROTAGRAM</span></a><div class="text-sm text-gray-500 leading-5"><a class="hover:text-gray-700" href="https://github.com/kryushiki" target="_blank" rel="noopener"><span class="hidden sm:inline">GitHub </span>Source</a><span class="mr-2 ml-2">·</span><a class="hover:text-gray-700" href="/feed.rss">RSS<span class="hidden sm:inline"> Feed</span></a></div></nav></div><main class="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0"><article class="xl:divide-y xl:divide-gray-200"><header class="pt-6 xl:pb-10 space-y-1 text-center"><dl><dt class="sr-only">Published on</dt><dd class="text-base leading-6 font-medium text-gray-500"><time datetime="2017-03-16T12:00:00.000Z">March 16, 2017</time></dd></dl><h1 class="text-3xl leading-9 font-extrabold text-gray-900 tracking-tight sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">WrodPressでアップロードしたメディアファイルをS3に保存して必要に応じてエンコードする方法</h1></header><div class="divide-y xl:divide-y-0 divide-gray-200 xl:grid xl:grid-cols-4 xl:gap-x-10 pb-16 xl:pb-20" style="grid-template-rows:auto 1fr;"><dl class="pt-6 pb-10 xl:pt-11 xl:border-b xl:border-gray-200"><dt class="sr-only">Authors</dt><dd><ul class="flex justify-center xl:block space-x-8 sm:space-x-12 xl:space-x-0 xl:space-y-8"><li class="flex items-center space-x-2"><img src="https://gravatar.com/avatar/eca93da2c67aadafe35d477aa8f454b8" alt="author image" class="w-10 h-10 rounded-full"><dl class="text-sm font-medium leading-5 whitespace-nowrap"><dt class="sr-only">Name</dt><dd class="text-gray-900">Kuriya Ushiki</dd><!----><!----></dl></li></ul></dd></dl><div class="divide-y divide-gray-200 xl:pb-0 xl:col-span-3 xl:row-span-2"><div style="position:relative;" class="prose max-w-none pt-10 pb-8"><div><p>WrodPressでアップロードしたメディアファイルをS3に保存して必要に応じてエンコードする方法</p><hr><h2 id="要件" tabindex="-1">要件 <a class="header-anchor" href="#要件" aria-hidden="true">#</a></h2><ul><li>wordpressのメディアからアップロードされたファイルをS3に保存</li><li>アップロードされたファイル形式がMOVだった場合mp4にエンコードする</li></ul><hr><h2 id="バケットを作る" tabindex="-1">バケットを作る <a class="header-anchor" href="#バケットを作る" aria-hidden="true">#</a></h2><p>サービスからS3を選択する。 「バケットを作成する」をクリックしてバケットを作成する。 ほぼデフォルトでOK。 バケット名は任意。今回は「<strong>wp-bucket</strong>」とする リージョンは東京とする。</p><h3 id="s3のファイルを一般公開する" tabindex="-1">S3のファイルを一般公開する <a class="header-anchor" href="#s3のファイルを一般公開する" aria-hidden="true">#</a></h3><p>ファイルにアクセスした時にだれでも読み込み出来るように権限を変更する必要がある。 そうしないとwordpress側などからファイルにアクセス出来なくなる。</p><p>【設定手順】</p><ol><li>バケットの「アクセス権限」をクリック</li><li>バケットポリシーをクリック</li><li>バケットポリシーエディターに以下の記述を追加 ※wp-bucketの箇所にはバケット名を入力する。</li></ol><div class="language-"><pre><code>{
+    &quot;Version&quot;: &quot;2012-10-17&quot;,
+    &quot;Statement&quot;: [
+        {
+            &quot;Sid&quot;: &quot;&quot;,
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Principal&quot;: &quot;*&quot;,
+            &quot;Action&quot;: &quot;s3:GetObject&quot;,
+            &quot;Resource&quot;: &quot;arn:aws:s3:::wp-bucket/*&quot;
+        }
+    ]
+}
+</code></pre></div><ol start="4"><li>入力したら保存する。</li></ol><p>参考サイト <a href="http://techtipshoge.blogspot.jp/2016/02/s3.html" target="_blank" rel="noopener noreferrer">http://techtipshoge.blogspot.jp/2016/02/s3.html</a></p><h2 id="パイプラインを作成する" tabindex="-1">パイプラインを作成する <a class="header-anchor" href="#パイプラインを作成する" aria-hidden="true">#</a></h2><ol><li>サービスからElastic Transcoderを選択する。</li><li>「Create a new Pipeline」をクリックする。</li><li>設定値を入力 Pipeline Nameには任意の名前をつける。英語の方がよい 今回は「wpUploadPipeline」とする。 input Bucket、 「Configuration for Amazon S3 Bucket for Transcoded Files and Playlists」のBucket、 「Configuration for Amazon S3 Bucket for Thumbnails」のbucket には全て同じバケットを設定する。今回はwp-bucket それ以外は全部デフォルトのまま。</li></ol><h2 id="roleを作る" tabindex="-1">roleを作る <a class="header-anchor" href="#roleを作る" aria-hidden="true">#</a></h2><p>権限を作る</p><ol><li>サービスからIAMを選択する。</li><li>「ロール」を選択する。</li><li>「新しいロールの作成」をクリック</li><li>ロールタイプの選択 「AWS Lambda」を選択</li><li>ポリシーのアタッチ 何も選択せずに「次のステップ」をクリック</li><li>確認</li></ol><table><thead><tr><th>項目</th><th>値</th></tr></thead><tbody><tr><td>ロール名</td><td>lambda_auto_transcoder_role (今回は←とする)</td></tr><tr><td>Role description</td><td>（空でいい）</td></tr><tr><td>信頼されたエンティティ</td><td>ID プロバイダー <a href="http://lambda.amazonaws.com" target="_blank" rel="noopener noreferrer">lambda.amazonaws.com</a>　（勝手に入ってる）</td></tr><tr><td>ポリシー</td><td>（何も選択しない）</td></tr></tbody></table><ol start="7"><li>先に作成した「lambda_auto_transcoder_role」を選択します。</li><li>インラインポリシーを開いて「表示するインラインポリシーはありません。作成するには、ここをクリックしてください。」のここをクリックする。</li><li>カスタムポリシーにチェックして「選択」する</li><li>ポリシーの確認に値を入力 ポリシー名：lambda_auto_transcoder_role_policy ポリシードキュメント</li></ol><div class="language-"><pre><code>{
+    &quot;Version&quot;: &quot;2012-10-17&quot;,
+    &quot;Statement&quot;: [
+        {
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: [
+                &quot;logs:CreateLogGroup&quot;,
+                &quot;logs:CreateLogStream&quot;,
+                &quot;logs:PutLogEvents&quot;
+            ],
+            &quot;Resource&quot;: &quot;arn:aws:logs:*:*:*&quot;
+        },
+        {
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: [
+                &quot;iam:GetRole&quot;,
+                &quot;iam:PassRole&quot;
+            ],
+            &quot;Resource&quot;: &quot;*&quot;
+        },
+        {
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: [
+                &quot;s3:ListBucket&quot;,
+                &quot;s3:Put*&quot;,
+                &quot;s3:Get*&quot;,
+                &quot;s3:*MultipartUpload*&quot;
+            ],
+            &quot;Resource&quot;: &quot;arn:aws:s3:::*&quot;
+        },
+        {
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: [
+                &quot;elastictranscoder:*&quot;
+            ],
+            &quot;Resource&quot;: &quot;*&quot;
+        },
+        {
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: [
+                &quot;sns:CreateTopic&quot;,
+                &quot;sns:Publish&quot;
+            ],
+            &quot;Resource&quot;: &quot;*&quot;
+        }
+    ]
+}
+</code></pre></div><blockquote><p>なお、以下のポリシーは、AWS Lambda（というか CloudWatch）、S3、Amazon Elastic Transcoder、および Amazon SNS への、今回使う機能でなるべく最小限のアクセスを許可したものになります。</p></blockquote><ol start="10"><li>「ポリシーの適用」をクリック</li><li>「信頼関係」のタブをクリックして「信頼関係の編集」をクリックする</li><li>信頼関係の編集</li></ol><div class="language-"><pre><code>{
+  &quot;Version&quot;: &quot;2012-10-17&quot;,
+  &quot;Statement&quot;: [
+    {
+      &quot;Sid&quot;: &quot;&quot;,
+      &quot;Effect&quot;: &quot;Allow&quot;,
+      &quot;Principal&quot;: {
+        &quot;Service&quot;: [
+          &quot;lambda.amazonaws.com&quot;,
+          &quot;elastictranscoder.amazonaws.com&quot;
+        ]
+      },
+      &quot;Action&quot;: &quot;sts:AssumeRole&quot;
+    }
+  ]
+}
+</code></pre></div><p>これで「<a href="http://elastictranscoder.amazonaws.com" target="_blank" rel="noopener noreferrer">elastictranscoder.amazonaws.com</a>」が追加される。</p><h2 id="lambdaでエンコードの自動化" tabindex="-1">Lambdaでエンコードの自動化 <a class="header-anchor" href="#lambdaでエンコードの自動化" aria-hidden="true">#</a></h2><p>S3にファイルがアップロードされる。 movファイルだった場合Lambdaの処理が走る。 ■処理内容 Elastic TranscoderにアクセスしてJobを作ってそのJobを使ってエンコードする。 今回はmov形式のファイルをmp4にエンコードしたいのでElastic TranscoderのPresetsにある「System preset: Generic 320x240」を使ってエンコードします。</p><p>【設定手順】</p><ol><li>サービスからLambdaを選択。右上からリージョンを東京に変更。ここはバケットで指定したリージョンと合わせる。</li><li>「s3-get-object-python」を選択</li><li>トリガーを設定する ■設定値</li></ol><table><thead><tr><th>項目</th><th>値</th></tr></thead><tbody><tr><td>バケット</td><td>wp-bucket</td></tr><tr><td>イベントタイプ</td><td>オブジェクトの作成 (すべて)</td></tr><tr><td>プレフィックス</td><td>（今回は設定しない。こちらでバケットのディレクトリを限定することが出来る）</td></tr><tr><td>サフィックス</td><td>mov</td></tr><tr><td>これでwp-bucketというバケットにオブジェクトの作成 (すべて)されて、そのファイルが.movというファイルだった時に処理が走るということになる。</td><td></td></tr><tr><td>[トリガーの有効化]にチェックをつける。</td><td></td></tr></tbody></table><blockquote><p>今すぐトリガーを有効化するか、テスト用に無効化した状態でトリガーを作成します (推奨)。</p></blockquote><ol start="4"><li>関数を設定する ■設定値</li></ol><table><thead><tr><th>名前*</th><th>autoTranscoder (任意だが今回はautoTranscoderとする)</th></tr></thead><tbody><tr><td>説明</td><td>(任意)</td></tr><tr><td>ランタイム*</td><td>Python 2.7</td></tr></tbody></table><ol start="5"><li>Lambda 関数のコード コード エントリ タイプは[コードをインラインで編集]のままにして以下のコードを入力します。</li></ol><div class="language-"><pre><code>import boto3
+from botocore.client import ClientError
+import json
+import urllib
+
+REGION_NAME = &#39;ap-northeast-1&#39;
+TRANSCODER_ROLE_NAME = &#39;lambda_auto_transcoder_role&#39;
+PIPELINE_NAME = &#39;wpUploadPipeline&#39;
+OUT_BUCKET_NAME = &#39;wp-bucket&#39;
+COMPLETE_TOPIC_NAME = &#39;test-complete&#39;
+
+print(&#39;Loading function&#39;)
+
+s3 = boto3.resource(&#39;s3&#39;)
+iam = boto3.resource(&#39;iam&#39;)
+sns = boto3.resource(&#39;sns&#39;, REGION_NAME)
+transcoder = boto3.client(&#39;elastictranscoder&#39;, REGION_NAME)
+
+
+def lambda_handler(event, context):
+    #print(&quot;Received event: &quot; + json.dumps(event, indent=2))
+
+    # Get ARN
+    complete_topic_arn = sns.create_topic(Name=COMPLETE_TOPIC_NAME).arn
+    transcoder_role_arn = iam.Role(TRANSCODER_ROLE_NAME).arn
+
+    # Get the object from the event
+    bucket = event[&#39;Records&#39;][0][&#39;s3&#39;][&#39;bucket&#39;][&#39;name&#39;]
+    key = urllib.unquote_plus(event[&#39;Records&#39;][0][&#39;s3&#39;][&#39;object&#39;][&#39;key&#39;]).decode(&#39;utf8&#39;)
+    print(&quot;bucket={}, key={}&quot;.format(bucket, key))
+    try:
+        obj = s3.Object(bucket, key)
+    except Exception as e:
+        print(e)
+        print(&quot;Error getting object {} from bucket {}. Make sure they exist and your bucket is in the same region as this function.&quot;.format(key, bucket))
+        # Publish a message
+        sns.Topic(complete_topic_arn).publish(
+            Subject=&quot;Error!&quot;,
+            Message=&quot;Failed to get object from S3. bucket={}, key={}, {}&quot;.format(bucket, key, e),
+        )
+        raise e
+
+    # Delete inactive pipelines
+    pipeline_ids = [pipeline[&#39;Id&#39;] for pipeline in transcoder.list_pipelines()[&#39;Pipelines&#39;] if pipeline[&#39;Name&#39;] == PIPELINE_NAME]
+    for pipeline_id in pipeline_ids:
+        try:
+            response = transcoder.delete_pipeline(Id=pipeline_id)
+            print(&quot;Delete a transcoder pipeline. pipeline_id={}&quot;.format(pipeline_id))
+            print(&quot;response={}&quot;.format(response))
+        except Exception as e:
+            # Raise nothing
+            print(&quot;Failed to delete a transcoder pipeline. pipeline_id={}&quot;.format(pipeline_id))
+            print(e)
+
+    # Create a pipeline
+    try:
+        response = transcoder.create_pipeline(
+            Name=PIPELINE_NAME,
+            InputBucket=bucket,
+            OutputBucket=OUT_BUCKET_NAME,
+            Role=transcoder_role_arn,
+            Notifications={
+                &#39;Progressing&#39;: &#39;&#39;,
+                &#39;Completed&#39;: complete_topic_arn,
+                &#39;Warning&#39;: &#39;&#39;,
+                &#39;Error&#39;: &#39;&#39;
+            },
+        )
+        pipeline_id = response[&#39;Pipeline&#39;][&#39;Id&#39;]
+        print(&quot;Create a transcoder pipeline. pipeline_id={}&quot;.format(pipeline_id))
+        print(&quot;response={}&quot;.format(response))
+    except Exception as e:
+        print(&quot;Failed to create a transcoder pipeline.&quot;)
+        print(e)
+        # Publish a message
+        sns.Topic(complete_topic_arn).publish(
+            Subject=&quot;Error!&quot;,
+            Message=&quot;Failed to create a transcoder pipeline. bucket={}, key={}, {}&quot;.format(bucket, key, e),
+        )
+        raise e
+
+    # Create a job
+    try:
+        job = transcoder.create_job(
+            PipelineId=pipeline_id,
+            Input={
+                &#39;Key&#39;: key,
+                &#39;FrameRate&#39;: &#39;auto&#39;,
+                &#39;Resolution&#39;: &#39;auto&#39;,
+                &#39;AspectRatio&#39;: &#39;auto&#39;,
+                &#39;Interlaced&#39;: &#39;auto&#39;,
+                &#39;Container&#39;: &#39;auto&#39;,
+            },
+            Outputs=[
+                {
+                    &#39;Key&#39;: &#39;output/{}&#39;.format(&#39;.&#39;.join(key.split(&#39;.&#39;)[:-1])) + &#39;.mp4&#39;,
+                    &#39;PresetId&#39;: &#39;1351620000001-000061&#39;,  # System preset generic 320x240
+                },
+            ],
+        )
+        job_id = job[&#39;Job&#39;][&#39;Id&#39;]
+        print(&quot;Create a transcoder job. job_id={}&quot;.format(job_id))
+        print(&quot;job={}&quot;.format(job))
+    except Exception as e:
+        print(&quot;Failed to create a transcoder job. pipeline_id={}&quot;.format(pipeline_id))
+        print(e)
+        # Publish a message
+        sns.Topic(complete_topic_arn).publish(
+            Subject=&quot;Error!&quot;,
+            Message=&quot;Failed to create transcoder job. pipeline_id={}, {}&quot;.format(pipeline_id, e),
+        )
+        raise e
+
+    return &quot;Success&quot;
+</code></pre></div><blockquote><p>TRANSCODER_ROLE_NAME = &#39;lambda_auto_transcoder_role&#39; PIPELINE_NAME = &#39;wpUploadPipeline&#39; OUT_BUCKET_NAME = &#39;wp-bucket&#39;</p></blockquote><p>はこれまでに作ってきたものの名前に合わせてください。 elastic transcoderにあるPresetsのページにpresetの一覧があるので、そこから使いたいpresetのIDのをコピーして「PresetId」にペーストします。 今回はSystem preset generic 320x240のIDである[1351620000001-000061]を記述しました。 もしcontainerがtsの場合は</p><div class="language-"><pre><code>Outputs=[
+	{
+		&#39;Key&#39;: &#39;output/{}&#39;.format(&#39;.&#39;.join(key.split(&#39;.&#39;)[:-1])),
+		&#39;PresetId&#39;: &#39;1351620000001-200030&#39;,  # System preset: HLS 1M
+		&#39;SegmentDuration&#39;: &#39;10&#39;,
+	},
+],
+</code></pre></div><p>こんな感じで「SegmentDuration」が必要っぽいです。</p><ol start="6"><li>Lambda 関数ハンドラおよびロール 先程作成したロールを選択する。</li></ol><table><thead><tr><th>項目</th><th>設定値</th></tr></thead><tbody><tr><td>ハンドラ*</td><td>lambda_function.lambda_handler</td></tr><tr><td>ロール*</td><td>既存のロールを選択</td></tr><tr><td>既存のロール*</td><td>lambda_auto_transcoder_role</td></tr></tbody></table><ol start="7"><li>詳細設定 実際の処理には 2200ms ほど必要なので、念のため、Advanced settingsで、Timeout を 3秒から 10秒に変更しておきます。</li></ol><table><thead><tr><th>項目</th><th>設定値</th></tr></thead><tbody><tr><td>メモリ (MB)*</td><td>128</td></tr><tr><td>タイムアウト*</td><td>0分10秒</td></tr></tbody></table><ol start="8"><li>後は全部デフォルとのままで「次へ」</li></ol><p>■参考サイト <a href="http://akiyoko.hatenablog.jp/entry/2015/12/03/000100" target="_blank" rel="noopener noreferrer">http://akiyoko.hatenablog.jp/entry/2015/12/03/000100</a></p><h2 id="uploadされたファイルを削除する。" tabindex="-1">uploadされたファイルを削除する。 <a class="header-anchor" href="#uploadされたファイルを削除する。" aria-hidden="true">#</a></h2><p>エンコードされたファイルが生成された後、エンコード前のファイルを削除する。 autoTranscoderにエンコード前のファイルを削除する記述をすると、エンコードされる前にエンコード前のファイルが削除されてしまうので新しく関数を作って、「エンコードされたファイルが生成されたら」というトリガーを作る。 新しく作成した関数の関数名は「deleteInputFunction」とする。 トリガータイプはS3とする。</p><table><thead><tr><th>項目</th><th>値</th></tr></thead><tbody><tr><td>バケット</td><td>wp-bucket</td></tr><tr><td>イベントタイプ</td><td>オブジェクトの作成 (すべて)</td></tr><tr><td>プレフィックス</td><td>output/</td></tr><tr><td>サフィックス</td><td>(空)</td></tr></tbody></table><div class="language-"><pre><code>from __future__ import print_function
+
+import json
+import urllib
+import boto3
+
+print(&#39;Loading function&#39;)
+
+OUT_BUCKET_NAME = &#39;wp-ana&#39;
+
+s3 = boto3.client(&#39;s3&#39;)
+s3client = boto3.client(&#39;s3&#39;)
+
+
+def lambda_handler(event, context):
+    #print(&quot;Received event: &quot; + json.dumps(event, indent=2))
+
+    # Get the object from the event and show its content type
+    bucket = event[&#39;Records&#39;][0][&#39;s3&#39;][&#39;bucket&#39;][&#39;name&#39;]
+    key = urllib.unquote_plus(event[&#39;Records&#39;][0][&#39;s3&#39;][&#39;object&#39;][&#39;key&#39;].encode(&#39;utf8&#39;))
+
+        
+    #delete input file
+    try:
+        inputKey = key.replace(&#39;mp4&#39;, &#39;mov&#39;)
+        inputKey = inputKey.replace(&#39;output/&#39;, &#39;&#39;)
+        response = s3client.delete_object(
+            Bucket=bucket,
+            Key=inputKey
+        )
+        print(bucket)
+        print(inputKey)
+        print(&quot;is deleted&quot;)
+    except Exception as e:
+        print(bucket)
+        print(inputKey)
+        print(&quot;not deleted&quot;)
+        print(e)
+        raise e
+        
+    return &quot;Success&quot;
+</code></pre></div><p>バケットの権限に「DeleteObject」を追加する。</p><div class="language-"><pre><code>{
+    &quot;Version&quot;: &quot;2012-10-17&quot;,
+    &quot;Statement&quot;: [
+        {
+            &quot;Sid&quot;: &quot;&quot;,
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Principal&quot;: &quot;*&quot;,
+            &quot;Action&quot;: [
+                &quot;s3:GetObject&quot;,
+                &quot;s3:DeleteObject&quot;
+            ],
+            &quot;Resource&quot;: &quot;arn:aws:s3:::wp-ana/*&quot;
+        }
+    ]
+}
+</code></pre></div><p>参考サイト <a href="https://boto3.readthedocs.io/en/latest/reference/services/s3.html#S3.Client.delete_object" target="_blank" rel="noopener noreferrer">https://boto3.readthedocs.io/en/latest/reference/services/s3.html#S3.Client.delete_object</a></p><h3 id="ログの見方" tabindex="-1">ログの見方 <a class="header-anchor" href="#ログの見方" aria-hidden="true">#</a></h3><p>関数のページから「モニタリング」のタブをクリックして「CloudWatch のログを表示」をクリック するとログの一覧ページに飛ぶ。</p><hr><h2 id="offload-s3の設定" tabindex="-1">Offload S3の設定 <a class="header-anchor" href="#offload-s3の設定" aria-hidden="true">#</a></h2><p>AWSの右上にある自分のアカウントをクリックして、そこのドロップダウンからセキュリティ認証情報をクリック。 「アクセスキー（アクセスキー ID とシークレットアクセスキー）」を開いて「新しいアクセスキーの作成」をクリック。 「アクセスキーを表示」をクリックして「アクセスキー ID」と「シークレットアクセスキー」をどっかにコピーしておく。 wordpressのAWS→Accsess Keysの「Access Key ID」「Secret Access Key」に先程コピーした内容を貼り付ける。 Save Changesをクリック S3 and CloudFrontをクリックしてBUCKETを指定する。 Remove Files From ServerをオンにすることでWPの入っているサーバーにはアップロードしたファイルは保存されなくなる。</p><h3 id="wordpressからアップした動画ファイルのurlのパスを変更する方法" tabindex="-1">WordPressからアップした動画ファイルのURLのパスを変更する方法 <a class="header-anchor" href="#wordpressからアップした動画ファイルのurlのパスを変更する方法" aria-hidden="true">#</a></h3><p>Offload S3というプラグインを使って、メディアファイルをS3にアップロードするようにしています。 なので動画ファイルのURLにはS3からのフルパスが入ります。 ただmov形式の動画ファイルの場合のみAWS内でmp4形式にエンコードするので、wordpressのパスもエンコード後のパスに変更する必要があります。 ex. 変更前 <code>http://s3.amazonaws.com/baket/uploads/2017/05/15035446/movie.mov</code> 変更後 <code>http://s3.amazonaws.com/baket/output/uploads/2017/05/15035446/movie.mp4</code></p><h4 id="方法" tabindex="-1">方法 <a class="header-anchor" href="#方法" aria-hidden="true">#</a></h4><p>WordPressのDBにS3のパスが保存されるので、DBに保存される前に値を変更する。 ***_postmetaというテーブルのamazonS3_infoというカラムに情報が入っている。 ex.</p><div class="language-"><pre><code>a:3:{s:6:&quot;bucket&quot;;s:6:&quot;baket-name&quot;;s:3:&quot;key&quot;;s:46:&quot;output/uploads/2017/05/16082025/movie.mp4&quot;;s:6:&quot;region&quot;;s:9:&quot;us-east-3&quot;;}
+</code></pre></div><p>Offload S3のプラグインのソースを書き換えます。 amazon-s3-and-cloudfront-pro/classes/amazon-s3-and-cloudfront.php こちらのファイルを書き換えます。 upload_attachment_to_s3という関数の中の <code>add_post_meta( $post_id, &#39;amazonS3_info&#39;, $s3object);</code> の箇所でDB保存しているので、</p><div class="language-"><pre><code>	//s3のエンコード後のパスに変更する為の関数
+	private function s3object_output($s3object){
+		$file_info = pathinfo($s3object[&#39;key&#39;]);
+		$img_extension = strtolower($file_info[&#39;extension&#39;]);
+		if($img_extension == &#39;mov&#39;){
+			$s3object[&#39;key&#39;] = &#39;output/&#39; . str_replace(&quot;.mov&quot;, &quot;.mp4&quot;, $s3object[&#39;key&#39;]);
+		}
+		return $s3object;
+	}
+</code></pre></div><p>という関数を追加して、</p><div class="language-"><pre><code>add_post_meta( $post_id, &#39;amazonS3_info&#39;, $this-&gt;s3object_output($s3object));
+</code></pre></div><p>と書き換えます。 s3object_outputの関数ではもしアップロードしたファイルの拡張子がmovだった場合mp4に変更してディレクトリもoutput/を追加するようにいたしました。</p></div></div></div><footer class="text-sm font-medium leading-5 divide-y divide-gray-200 xl:col-start-1 xl:row-start-2"><div class="py-8"><h2 class="text-xs tracking-wide uppercase text-gray-500"> Next Article </h2><div class="link"><a href="/posts/201703117.html">SlackのAPI「Outgoing Webhooks」でpostした時に返ってくるエラーを確認する方法</a></div></div><div class="py-8"><h2 class="text-xs tracking-wide uppercase text-gray-500"> Previous Article </h2><div class="link"><a href="/posts/201703115.html">VCCWでサブドメインのマルチサイトを作る方法</a></div></div><div class="pt-8"><a class="link" href="/">← Back to the blog</a></div></footer></div></article></main></div></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"index.md\":\"bbe87050\",\"posts_20170301.md\":\"7a3ce58a\",\"posts_20170302.md\":\"d0af4d50\",\"posts_20170303.md\":\"5d077dc3\",\"posts_20170304.md\":\"b9b8e56b\",\"posts_20170305.md\":\"5b6337f6\",\"posts_20170306.md\":\"8be4fd58\",\"posts_20170307.md\":\"3e3bf942\",\"posts_20170308-draft.md\":\"560cda62\",\"posts_20170309.md\":\"fa533d43\",\"posts_20170310.md\":\"13071d01\",\"posts_20170311.md\":\"ad7f6227\",\"posts_201703112.md\":\"92bb1571\",\"posts_201703113.md\":\"3852511d\",\"posts_201703114.md\":\"8be6e4f9\",\"posts_201703115.md\":\"051eea19\",\"posts_201703116.md\":\"0aec5ec9\",\"posts_201703117.md\":\"0afabaf0\",\"posts_20210211.md\":\"86828948\",\"posts_20210212.md\":\"8cca5628\"}")</script>
+    <script type="module" async src="/assets/app.505c8123.js"></script>
+    
+  </body>
+</html>

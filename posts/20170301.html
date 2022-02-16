@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>sageの使い方（設定方法） | The Vue Point</title>
+    <meta name="description" content="The offical blog for the Vue.js project">
+    <link rel="stylesheet" href="/assets/style.af0878d8.css">
+    <link rel="modulepreload" href="/assets/app.505c8123.js">
+    <link rel="modulepreload" href="/assets/posts_20170301.md.7a3ce58a.lean.js">
+    
+    <meta name="twitter:site" content="@vuejs">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://vuejs.org/images/logo.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <script src="https://cdn.usefathom.com/script.js" data-site="NYHGSGQV" defer=""></script>
+  <meta name="twitter:title" content="sageの使い方（設定方法） | The Vue Point">
+  <meta property="og:title" content="sageの使い方（設定方法） | The Vue Point">
+  </head>
+  <body>
+    <div id="app"><div class="antialiased"><div class="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0"><nav class="flex justify-between items-center py-10 font-bold"><a class="text-xl" href="/" aria-label="PROTAGRAM"><img class="inline-block mr-2" style="width:36px;height:31px;" alt="logo" src="/logo.svg"><span class="hidden md:inline">PROTAGRAM</span></a><div class="text-sm text-gray-500 leading-5"><a class="hover:text-gray-700" href="https://github.com/kryushiki" target="_blank" rel="noopener"><span class="hidden sm:inline">GitHub </span>Source</a><span class="mr-2 ml-2">·</span><a class="hover:text-gray-700" href="/feed.rss">RSS<span class="hidden sm:inline"> Feed</span></a></div></nav></div><main class="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0"><article class="xl:divide-y xl:divide-gray-200"><header class="pt-6 xl:pb-10 space-y-1 text-center"><dl><dt class="sr-only">Published on</dt><dd class="text-base leading-6 font-medium text-gray-500"><time datetime="2017-03-01T12:00:00.000Z">March 1, 2017</time></dd></dl><h1 class="text-3xl leading-9 font-extrabold text-gray-900 tracking-tight sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">sageの使い方（設定方法）</h1></header><div class="divide-y xl:divide-y-0 divide-gray-200 xl:grid xl:grid-cols-4 xl:gap-x-10 pb-16 xl:pb-20" style="grid-template-rows:auto 1fr;"><dl class="pt-6 pb-10 xl:pt-11 xl:border-b xl:border-gray-200"><dt class="sr-only">Authors</dt><dd><ul class="flex justify-center xl:block space-x-8 sm:space-x-12 xl:space-x-0 xl:space-y-8"><li class="flex items-center space-x-2"><img src="https://gravatar.com/avatar/eca93da2c67aadafe35d477aa8f454b8" alt="author image" class="w-10 h-10 rounded-full"><dl class="text-sm font-medium leading-5 whitespace-nowrap"><dt class="sr-only">Name</dt><dd class="text-gray-900">Kuriya Ushiki</dd><!----><!----></dl></li></ul></dd></dl><div class="divide-y divide-gray-200 xl:pb-0 xl:col-span-3 xl:row-span-2"><div style="position:relative;" class="prose max-w-none pt-10 pb-8"><div><p>WordPressのスターターテーマはいくつかあるのですが、今回は<em>Sage</em>というテーマの設定方法について説明します。</p><hr><p>普通のWordPressのテーマならThemeのディレクトリにテーマを入れるか、管理画面のテーマからダウンロードすればそれでOKなのですが<em>Sage</em>の場合それだけでは表示もされません。</p><p>テンプレートにテンプレートエンジンのbladeが使っているのでComposerを入れないと動かないのです。 それ以外にもnpmでもダウンロードしない<em>Sage</em>で用意してくれている機能が使えません。</p><h3 id="sageをダウンロード" tabindex="-1">Sageをダウンロード <a class="header-anchor" href="#sageをダウンロード" aria-hidden="true">#</a></h3><p>WordPressのｔｈemeディレクトリまで移動してgitからクローンします。</p><div class="language-"><pre><code>git clone https://github.com/roots/sage.git
+</code></pre></div><h3 id="composer-installを実行する" tabindex="-1">composer installを実行する <a class="header-anchor" href="#composer-installを実行する" aria-hidden="true">#</a></h3><p>composer.jsonはすでに用意されているのでcomposer installでファイルを落としてくるだけで良い</p><div class="language-"><pre><code>composer install
+</code></pre></div><p>PCにComposerがインストールされていない場合はまずComposerをPCにインストールする必要があります。</p><h3 id="パッケージのインストール" tabindex="-1">パッケージのインストール <a class="header-anchor" href="#パッケージのインストール" aria-hidden="true">#</a></h3><p>ここでつまったのですがSageのドキュメントが古かったです。 <a href="https://roots.io/sage/docs/theme-development-and-building/" target="_blank" rel="noopener noreferrer">Theme Development and Building</a></p><div class="language-"><pre><code>$ Theme Development and Building
+$ npm install -g gulp bower
+$ npm install
+$ bower install
+</code></pre></div><p>こんなようなことが書いてあるのですが、これは古いバージョンでした(2017/4/2現在)</p><p><em>正しく</em>は<a href="https://github.com/roots/sage" target="_blank" rel="noopener noreferrer">GitのREADME.md</a>に書いてありました。</p><h4 id="yarnをインストール-yarnがインストールしてある場合はスキップ" tabindex="-1">Yarnをインストール(Yarnがインストールしてある場合はスキップ) <a class="header-anchor" href="#yarnをインストール-yarnがインストールしてある場合はスキップ" aria-hidden="true">#</a></h4><p>macの場合</p><div class="language-"><pre><code>$ brew update
+$ brew install yarn
+</code></pre></div><p>windowsは以下で出来るっぽいです。</p><div class="language-"><pre><code>$ npm instlal -g yarn
+</code></pre></div><h4 id="yarnを実行" tabindex="-1">Yarnを実行 <a class="header-anchor" href="#yarnを実行" aria-hidden="true">#</a></h4><div class="language-"><pre><code>$ yarn
+</code></pre></div><p>これでnpmも裏で実行されてpackage.jsonに記述されているパッケージをダウンロードすることができます。</p><p>yarnって何かはよく分かっていません汗</p><h4 id="細かい設定" tabindex="-1">細かい設定 <a class="header-anchor" href="#細かい設定" aria-hidden="true">#</a></h4><h5 id="sidebarを表示する" tabindex="-1">sidebarを表示する <a class="header-anchor" href="#sidebarを表示する" aria-hidden="true">#</a></h5><p>sage/src/helpers.php</p><div class="language-"><pre><code>/**
+ * Determine whether to show the sidebar
+ * @return bool
+ */
+function display_sidebar()
+{
+    static $display;
+    isset($display) || $display = apply_filters(&#39;sage/display_sidebar&#39;, true); //←ここをtrueに変更
+    return $display;
+}
+</code></pre></div><p>cssで表示位置を修正しないとメインカラムの下に表示される。</p><hr><p>とりあえずここまでやれば一応画面に表示されるようになります。</p><p>ただthemeをカスタマイズするには<em>SASS</em>や<em>blade</em>,<em>gulp</em>などの知識が必要となりそうです。</p></div></div></div><footer class="text-sm font-medium leading-5 divide-y divide-gray-200 xl:col-start-1 xl:row-start-2"><div class="py-8"><h2 class="text-xs tracking-wide uppercase text-gray-500"> Next Article </h2><div class="link"><a href="/posts/20170302.html">vagrantでapacheの再起動ができない時の対処法</a></div></div><!----><div class="pt-8"><a class="link" href="/">← Back to the blog</a></div></footer></div></article></main></div></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"index.md\":\"bbe87050\",\"posts_20170301.md\":\"7a3ce58a\",\"posts_20170302.md\":\"d0af4d50\",\"posts_20170303.md\":\"5d077dc3\",\"posts_20170304.md\":\"b9b8e56b\",\"posts_20170305.md\":\"5b6337f6\",\"posts_20170306.md\":\"8be4fd58\",\"posts_20170307.md\":\"3e3bf942\",\"posts_20170308-draft.md\":\"560cda62\",\"posts_20170309.md\":\"fa533d43\",\"posts_20170310.md\":\"13071d01\",\"posts_20170311.md\":\"ad7f6227\",\"posts_201703112.md\":\"92bb1571\",\"posts_201703113.md\":\"3852511d\",\"posts_201703114.md\":\"8be6e4f9\",\"posts_201703115.md\":\"051eea19\",\"posts_201703116.md\":\"0aec5ec9\",\"posts_201703117.md\":\"0afabaf0\",\"posts_20210211.md\":\"86828948\",\"posts_20210212.md\":\"8cca5628\"}")</script>
+    <script type="module" async src="/assets/app.505c8123.js"></script>
+    
+  </body>
+</html>

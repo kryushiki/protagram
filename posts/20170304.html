@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>VCCWでのWordMoveの概要と設定方法と使い方 | The Vue Point</title>
+    <meta name="description" content="The offical blog for the Vue.js project">
+    <link rel="stylesheet" href="/assets/style.af0878d8.css">
+    <link rel="modulepreload" href="/assets/app.505c8123.js">
+    <link rel="modulepreload" href="/assets/posts_20170304.md.b9b8e56b.lean.js">
+    
+    <meta name="twitter:site" content="@vuejs">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://vuejs.org/images/logo.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <script src="https://cdn.usefathom.com/script.js" data-site="NYHGSGQV" defer=""></script>
+  <meta name="twitter:title" content="VCCWでのWordMoveの概要と設定方法と使い方 | The Vue Point">
+  <meta property="og:title" content="VCCWでのWordMoveの概要と設定方法と使い方 | The Vue Point">
+  </head>
+  <body>
+    <div id="app"><div class="antialiased"><div class="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0"><nav class="flex justify-between items-center py-10 font-bold"><a class="text-xl" href="/" aria-label="PROTAGRAM"><img class="inline-block mr-2" style="width:36px;height:31px;" alt="logo" src="/logo.svg"><span class="hidden md:inline">PROTAGRAM</span></a><div class="text-sm text-gray-500 leading-5"><a class="hover:text-gray-700" href="https://github.com/kryushiki" target="_blank" rel="noopener"><span class="hidden sm:inline">GitHub </span>Source</a><span class="mr-2 ml-2">·</span><a class="hover:text-gray-700" href="/feed.rss">RSS<span class="hidden sm:inline"> Feed</span></a></div></nav></div><main class="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0"><article class="xl:divide-y xl:divide-gray-200"><header class="pt-6 xl:pb-10 space-y-1 text-center"><dl><dt class="sr-only">Published on</dt><dd class="text-base leading-6 font-medium text-gray-500"><time datetime="2017-03-04T12:00:00.000Z">March 4, 2017</time></dd></dl><h1 class="text-3xl leading-9 font-extrabold text-gray-900 tracking-tight sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">VCCWでのWordMoveの概要と設定方法と使い方</h1></header><div class="divide-y xl:divide-y-0 divide-gray-200 xl:grid xl:grid-cols-4 xl:gap-x-10 pb-16 xl:pb-20" style="grid-template-rows:auto 1fr;"><dl class="pt-6 pb-10 xl:pt-11 xl:border-b xl:border-gray-200"><dt class="sr-only">Authors</dt><dd><ul class="flex justify-center xl:block space-x-8 sm:space-x-12 xl:space-x-0 xl:space-y-8"><li class="flex items-center space-x-2"><img src="https://gravatar.com/avatar/eca93da2c67aadafe35d477aa8f454b8" alt="author image" class="w-10 h-10 rounded-full"><dl class="text-sm font-medium leading-5 whitespace-nowrap"><dt class="sr-only">Name</dt><dd class="text-gray-900">Kuriya Ushiki</dd><!----><!----></dl></li></ul></dd></dl><div class="divide-y divide-gray-200 xl:pb-0 xl:col-span-3 xl:row-span-2"><div style="position:relative;" class="prose max-w-none pt-10 pb-8"><div><p>VCCWはvagrantでWordPressの環境を簡単に構築するためのものなのですが、VCCWにはWordMoveという便利ツールが入っています。</p><hr><p>VCCWはvagrantでWordPressの環境を簡単に構築するためのものなのですが、VCCWにはWordMoveという便利ツールが入っています。</p><h2 id="wordmoveとは" tabindex="-1">WordMoveとは <a class="header-anchor" href="#wordmoveとは" aria-hidden="true">#</a></h2><p>WordMoveはコマンド１つでWorｄPressがある開発環境と本番環境を同期してくれるツールです。 指定のディレクトリでコマンドを実行するとテーマだけでなく<strong>プラグイン</strong>や<strong>DB</strong>や<strong>メディア</strong>なども全てデプロイされます。</p><h2 id="wordmoveのメリット" tabindex="-1">WordMoveのメリット <a class="header-anchor" href="#wordmoveのメリット" aria-hidden="true">#</a></h2><p>WordPressで開発環境を作っても本番環境で記事などを更新すると開発環境と本番環境でズレが生じてきてします。 そのズレを直すために毎回管理画面で設定を変更したり、記事を更新したりするのはとてもめんどくさい。 そのズレをコマンド一発で同期されるのでWordMoveはすごい便利です。</p><p>またこまめに開発環境と本番環境で同期を取ることでバックアップにもなります。 私は記事を書く際も開発環境で書いてそれを本番に同期させるようにしています。</p><p>以前にサーバーのお金を払い忘れて今まで書いていた記事やソースが全て消えたてショックだったので、バックアップはローカルで取りたいと思い、模索した結果WrodMoveに行き着きました。</p><h2 id="使い方" tabindex="-1">使い方 <a class="header-anchor" href="#使い方" aria-hidden="true">#</a></h2><h4 id="vccwで開発環境を構築する" tabindex="-1">VCCWで開発環境を構築する <a class="header-anchor" href="#vccwで開発環境を構築する" aria-hidden="true">#</a></h4><p>別の記事にVCCWでのWrodPressの開発環境の構築方法を記載します。 coming soon</p><h4 id="mordmoveの設定" tabindex="-1">MordMoveの設定 <a class="header-anchor" href="#mordmoveの設定" aria-hidden="true">#</a></h4><p>MordMoveの設定には開発環境と本番環境のSSHの情報とDBの情報が必要となる。 開発環境の情報はVCCWで構築していればplaybookに全て書いてある。 本番環境の情報はレンタルサーバーであればそこの管理画面などから探す必要がある。</p><p>まず<strong>Movefile</strong>を編集する 変更が必要な箇所についてはコメントを残しておいたので参照してください。</p><div class="language-"><pre><code>local:
+  vhost: &quot;http://example.dev&quot; #本番環境のドメイン
+  wordpress_path: &quot;/var/www/html&quot; # 開発環境でのWordPressが入っているディレクトリのフルパス #VCCWでplaybookを変更していなければデフォルトのままでOK
+  database:
+    name: &quot;dbname&quot; #開発環境のDBのデータベース名
+    user: &quot;dbuser&quot; #開発環境のDBのユーザー名
+    password: &quot;dbpassward&quot; #開発環境のDBのユーザー名のパスワード
+    host: &quot;localhost&quot;
+    charset: &quot;utf8&quot;
+
+  # paths: # you can customize wordpress internal paths
+  #   wp_content: &quot;wp-content&quot;
+  #   uploads: &quot;wp-content/uploads&quot;
+  #   plugins: &quot;wp-content/plugins&quot;
+  #   mu_plugins: &quot;wp-content/mu-plugins&quot;
+  #   themes: &quot;wp-content/themes&quot;
+  #   languages: &quot;wp-content/languages&quot;
+
+production:
+  vhost: &quot;http://example.com&quot; #本番環境のドメイン
+  wordpress_path: &quot;/home/users/3/username/web/protagram&quot; #本番環境のWordPressが入っているディレクトリのフルパス
+
+  database:
+    name: &quot;dbname&quot; #本番環境のDBのデータベース名
+    user: &quot;dbuser&quot; #本番環境のDBのユーザー名
+    password: &quot;dbpassward&quot; #本番環境のDBのユーザー名のパスワード
+    host: &quot;host&quot; #本番環境のDBのホスト
+    #port: &quot;3308&quot; # デフォルトでこの記述があったでそのままにしていたら接続できなかったので削除するかコメントアウトする必要がある
+    mysqldump_options: &quot;--max_allowed_packet=50MB&quot; # Only available if using SSH
+
+  exclude:
+    - &quot;.git/&quot;
+    - &quot;.gitignore&quot;
+    - &quot;.sass-cache/&quot;
+    - &quot;bin/&quot;
+    - &quot;tmp/*&quot;
+    - &quot;Gemfile*&quot;
+    - &quot;Movefile&quot;
+    - &quot;wp-config.php&quot;
+    - &quot;wp-content/*.sql&quot;
+    - &quot;.htaccess&quot; #追記した
+
+  ssh:
+    host: &quot;2222.22222.jp&quot; #本番環境のSSHのhost
+    user: &quot;2222user&quot; #本番環境のSSHのuser名
+    password: &quot;password&quot; #デフォルトではこの項目は無かったが追記しておいた。
+    port: &quot;2222&quot; #本番環境のSSHのport
+    rsync_options: --verbose
+
+</code></pre></div><p><a href="https://lolipop.jp/" target="_blank" rel="noopener noreferrer">ロリポップ</a>の場合は以下のサイトがとてもわかり易く設定方法を書いてくれていた。 <a href="http://wpwand.com/migrate-between-remote-to-local/" target="_blank" rel="noopener noreferrer">WordmoveでリモートWordPressサイトをローカル環境に転送する</a></p><p>さくらサーバーの場合は以下のサイトがとてもわかり易く設定方法を書いてくれていた。 <a href="https://www.d-wood.com/blog/2016/02/26_7816.html" target="_blank" rel="noopener noreferrer">[WordPress] VCCW + WordMove でローカルの WordPress をサーバと同期する</a></p><h4 id="wrodmoveでデプロイする方法" tabindex="-1">WrodMoveでデプロイする方法 <a class="header-anchor" href="#wrodmoveでデプロイする方法" aria-hidden="true">#</a></h4><p>開発環境のsshに入る</p><div class="language-"><pre><code>vagrant ssh
+</code></pre></div><p>vagrantディレクトリに移動する</p><div class="language-"><pre><code>cd /vagrant
+</code></pre></div><p>開発環境を本番環境に同期する場合</p><div class="language-"><pre><code>wordmove push --all
+</code></pre></div><p>本番環境を開発環境に同期する場合</p><div class="language-"><pre><code>wordmove pull --all
+</code></pre></div></div></div></div><footer class="text-sm font-medium leading-5 divide-y divide-gray-200 xl:col-start-1 xl:row-start-2"><div class="py-8"><h2 class="text-xs tracking-wide uppercase text-gray-500"> Next Article </h2><div class="link"><a href="/posts/20170305.html">ロリポップレンタルサーバーは外部サーバーからの接続はできない</a></div></div><div class="py-8"><h2 class="text-xs tracking-wide uppercase text-gray-500"> Previous Article </h2><div class="link"><a href="/posts/20170303.html">オススメのWordpressのスターターテーマ紹介</a></div></div><div class="pt-8"><a class="link" href="/">← Back to the blog</a></div></footer></div></article></main></div></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"index.md\":\"bbe87050\",\"posts_20170301.md\":\"7a3ce58a\",\"posts_20170302.md\":\"d0af4d50\",\"posts_20170303.md\":\"5d077dc3\",\"posts_20170304.md\":\"b9b8e56b\",\"posts_20170305.md\":\"5b6337f6\",\"posts_20170306.md\":\"8be4fd58\",\"posts_20170307.md\":\"3e3bf942\",\"posts_20170308-draft.md\":\"560cda62\",\"posts_20170309.md\":\"fa533d43\",\"posts_20170310.md\":\"13071d01\",\"posts_20170311.md\":\"ad7f6227\",\"posts_201703112.md\":\"92bb1571\",\"posts_201703113.md\":\"3852511d\",\"posts_201703114.md\":\"8be6e4f9\",\"posts_201703115.md\":\"051eea19\",\"posts_201703116.md\":\"0aec5ec9\",\"posts_201703117.md\":\"0afabaf0\",\"posts_20210211.md\":\"86828948\",\"posts_20210212.md\":\"8cca5628\"}")</script>
+    <script type="module" async src="/assets/app.505c8123.js"></script>
+    
+  </body>
+</html>
