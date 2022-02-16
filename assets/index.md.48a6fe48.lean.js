@@ -1,0 +1,1 @@
+import{_ as t,c as a,o as e}from"./app.bd02baaa.js";const r='{"title":"PROTAGRAM","description":"","frontmatter":{"title":"PROTAGRAM","subtext":"programming blog"},"headers":[],"relativePath":"index.md","lastUpdated":1644988092250}';var d=t({},[["render",function(t,r,d,i,o,s){return e(),a("div")}]]);export{r as __pageData,d as default};

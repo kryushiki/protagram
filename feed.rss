@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>The Vue Point</title>
-        <link>https://kryushiki.github.io/protagram/</link>
+        <link>https://protagram.com</link>
         <description>The official blog for the Vue.js project</description>
-        <lastBuildDate>Wed, 16 Feb 2022 06:02:12 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 16 Feb 2022 09:08:34 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <image>
             <title>The Vue Point</title>
             <url>https://vuejs.org/images/logo.png</url>
-            <link>https://kryushiki.github.io/protagram/</link>
+            <link>https://protagram.com</link>
         </image>
         <copyright>Copyright (c) 2021-present, Yuxi (Evan) You and blog contributors</copyright>
         <item>
             <title><![CDATA[vitepressを使ったブログの作成方法]]></title>
-            <link>https://kryushiki.github.io/protagram//posts/20210211.html</link>
-            <guid>https://kryushiki.github.io/protagram//posts/20210211.html</guid>
+            <link>https://protagram.com/posts/20210211.html</link>
+            <guid>https://protagram.com/posts/20210211.html</guid>
             <pubDate>Thu, 11 Feb 2021 12:00:00 GMT</pubDate>
             <description><![CDATA[<p>このブログはvitepressを使って作られています。こちらではその作成手順について説明します。</p>
 ]]></description>
@@ -27,8 +27,8 @@ yarn dev
         </item>
         <item>
             <title><![CDATA[macにnodeを入れるベストプラクティス]]></title>
-            <link>https://kryushiki.github.io/protagram//posts/20210212.html</link>
-            <guid>https://kryushiki.github.io/protagram//posts/20210212.html</guid>
+            <link>https://protagram.com/posts/20210212.html</link>
+            <guid>https://protagram.com/posts/20210212.html</guid>
             <pubDate>Thu, 11 Feb 2021 12:00:00 GMT</pubDate>
             <description><![CDATA[<p>macにnodeを入れる方法はいくつかあるが、私の思う最適解を説明する。</p>
 ]]></description>
@@ -53,8 +53,8 @@ node -v
         </item>
         <item>
             <title><![CDATA[SlackのAPI「Outgoing Webhooks」でpostした時に返ってくるエラーを確認する方法]]></title>
-            <link>https://kryushiki.github.io/protagram//posts/201703117.html</link>
-            <guid>https://kryushiki.github.io/protagram//posts/201703117.html</guid>
+            <link>https://protagram.com/posts/201703117.html</link>
+            <guid>https://protagram.com/posts/201703117.html</guid>
             <pubDate>Fri, 17 Mar 2017 12:00:00 GMT</pubDate>
             <description><![CDATA[<p>Slackで書いたメッセージが設定したキーワードにマッチしていたら、php側にメッセージをpostする。</p>
 ]]></description>
@@ -64,8 +64,8 @@ Apr 30 22:51:58 hoge app/web.1:  {ipっぽいの} - - [01/May/2017:05:51:57 +000
         </item>
         <item>
             <title><![CDATA[WrodPressでアップロードしたメディアファイルをS3に保存して必要に応じてエンコードする方法]]></title>
-            <link>https://kryushiki.github.io/protagram//posts/201703116.html</link>
-            <guid>https://kryushiki.github.io/protagram//posts/201703116.html</guid>
+            <link>https://protagram.com/posts/201703116.html</link>
+            <guid>https://protagram.com/posts/201703116.html</guid>
             <pubDate>Thu, 16 Mar 2017 12:00:00 GMT</pubDate>
             <description><![CDATA[<p>WrodPressでアップロードしたメディアファイルをS3に保存して必要に応じてエンコードする方法</p>
 ]]></description>
@@ -336,8 +336,8 @@ def lambda_handler(event, context):
         </item>
         <item>
             <title><![CDATA[VCCWでサブドメインのマルチサイトを作る方法]]></title>
-            <link>https://kryushiki.github.io/protagram//posts/201703115.html</link>
-            <guid>https://kryushiki.github.io/protagram//posts/201703115.html</guid>
+            <link>https://protagram.com/posts/201703115.html</link>
+            <guid>https://protagram.com/posts/201703115.html</guid>
             <pubDate>Wed, 15 Mar 2017 12:00:00 GMT</pubDate>
             <description><![CDATA[<p>以前、いくつかのwordpressサイト1つ1つにサブドメインを作ってdocumentrootを割り当ててwordpressを入れてみたいなことをしていました。</p>
 ]]></description>
@@ -348,8 +348,8 @@ def lambda_handler(event, context):
         </item>
         <item>
             <title><![CDATA[MAMPのDBにSequel Proでアクセスする方法]]></title>
-            <link>https://kryushiki.github.io/protagram//posts/201703114.html</link>
-            <guid>https://kryushiki.github.io/protagram//posts/201703114.html</guid>
+            <link>https://protagram.com/posts/201703114.html</link>
+            <guid>https://protagram.com/posts/201703114.html</guid>
             <pubDate>Tue, 14 Mar 2017 12:00:00 GMT</pubDate>
             <description><![CDATA[<p>MAMPのDBにSequel Proでアクセスする方法</p>
 ]]></description>
@@ -357,8 +357,8 @@ def lambda_handler(event, context):
         </item>
         <item>
             <title><![CDATA[AnsibleのGalaxyでLAMP環境を作る方法]]></title>
-            <link>https://kryushiki.github.io/protagram//posts/201703113.html</link>
-            <guid>https://kryushiki.github.io/protagram//posts/201703113.html</guid>
+            <link>https://protagram.com/posts/201703113.html</link>
+            <guid>https://protagram.com/posts/201703113.html</guid>
             <pubDate>Mon, 13 Mar 2017 12:00:00 GMT</pubDate>
             <description><![CDATA[<p>Vagrant上にAnsibleを使ってLAMP環境を作る方法を説明します。</p>
 ]]></description>
@@ -433,8 +433,8 @@ $ ansible-galaxy install --roles-path roles geerlingguy.repo-remi
         </item>
         <item>
             <title><![CDATA[bootstrapのハンバーガーメニューにエフェクトをつける方法]]></title>
-            <link>https://kryushiki.github.io/protagram//posts/201703112.html</link>
-            <guid>https://kryushiki.github.io/protagram//posts/201703112.html</guid>
+            <link>https://protagram.com/posts/201703112.html</link>
+            <guid>https://protagram.com/posts/201703112.html</guid>
             <pubDate>Sun, 12 Mar 2017 12:00:00 GMT</pubDate>
             <description><![CDATA[<p>よく見るハンバーガーメニューのエフェクトは以下のサイトでまとめてくれている。</p>
 ]]></description>
@@ -506,8 +506,8 @@ $ ansible-galaxy install --roles-path roles geerlingguy.repo-remi
         </item>
         <item>
             <title><![CDATA[Vagrantのsynced_folderで開発環境に反映されない箇所がある場合の対処法]]></title>
-            <link>https://kryushiki.github.io/protagram//posts/20170311.html</link>
-            <guid>https://kryushiki.github.io/protagram//posts/20170311.html</guid>
+            <link>https://protagram.com/posts/20170311.html</link>
+            <guid>https://protagram.com/posts/20170311.html</guid>
             <pubDate>Sat, 11 Mar 2017 12:00:00 GMT</pubDate>
             <description><![CDATA[<p>Vagrantのsynced_folderを使うことでローカルで編集した内容が自動でvagrantの仮想環境にアップされます。</p>
 ]]></description>
@@ -516,8 +516,8 @@ $ ansible-galaxy install --roles-path roles geerlingguy.repo-remi
         </item>
         <item>
             <title><![CDATA[エラーログを確認する方法]]></title>
-            <link>https://kryushiki.github.io/protagram//posts/20170309.html</link>
-            <guid>https://kryushiki.github.io/protagram//posts/20170309.html</guid>
+            <link>https://protagram.com/posts/20170309.html</link>
+            <guid>https://protagram.com/posts/20170309.html</guid>
             <pubDate>Thu, 09 Mar 2017 12:00:00 GMT</pubDate>
             <description><![CDATA[<p>PHPをスクラッチで書いていたり、独自フレームワークを作った場合ブラウザにエラーが表示されない場合が多いです。
 その場合サーバー内にあるerror_logのファイルを確認するとエラーが起きている箇所が分かる場合があります。</p>
@@ -532,8 +532,8 @@ $ less error_log
         </item>
         <item>
             <title><![CDATA[エラーログを確認する方法]]></title>
-            <link>https://kryushiki.github.io/protagram//posts/20170310.html</link>
-            <guid>https://kryushiki.github.io/protagram//posts/20170310.html</guid>
+            <link>https://protagram.com/posts/20170310.html</link>
+            <guid>https://protagram.com/posts/20170310.html</guid>
             <pubDate>Thu, 09 Mar 2017 12:00:00 GMT</pubDate>
             <description><![CDATA[<p>PHPをスクラッチで書いていたり、独自フレームワークを作った場合ブラウザにエラーが表示されない場合が多いです。
 その場合サーバー内にあるerror_logのファイルを確認するとエラーが起きている箇所が分かる場合があります。</p>
@@ -548,8 +548,8 @@ $ less error_log
         </item>
         <item>
             <title><![CDATA[Sageにnpmでインストールしたjsファイルをwebpackで読み込む方法]]></title>
-            <link>https://kryushiki.github.io/protagram//posts/20170307.html</link>
-            <guid>https://kryushiki.github.io/protagram//posts/20170307.html</guid>
+            <link>https://protagram.com/posts/20170307.html</link>
+            <guid>https://protagram.com/posts/20170307.html</guid>
             <pubDate>Tue, 07 Mar 2017 12:00:00 GMT</pubDate>
             <description><![CDATA[<p>webpackはGulpやGruntと同じビルドツールです。</p>
 ]]></description>
@@ -559,8 +559,8 @@ $ less error_log
         </item>
         <item>
             <title><![CDATA[Sageにnpmでインストールしたjsファイルをwebpackで読み込む方法]]></title>
-            <link>https://kryushiki.github.io/protagram//posts/20170308-draft.html</link>
-            <guid>https://kryushiki.github.io/protagram//posts/20170308-draft.html</guid>
+            <link>https://protagram.com/posts/20170308-draft.html</link>
+            <guid>https://protagram.com/posts/20170308-draft.html</guid>
             <pubDate>Tue, 07 Mar 2017 12:00:00 GMT</pubDate>
             <description><![CDATA[<p>webpackはGulpやGruntと同じビルドツールです。</p>
 ]]></description>
@@ -570,8 +570,8 @@ $ less error_log
         </item>
         <item>
             <title><![CDATA[CSSをSCSS/SASSに変換してくれるツール]]></title>
-            <link>https://kryushiki.github.io/protagram//posts/20170306.html</link>
-            <guid>https://kryushiki.github.io/protagram//posts/20170306.html</guid>
+            <link>https://protagram.com/posts/20170306.html</link>
+            <guid>https://protagram.com/posts/20170306.html</guid>
             <pubDate>Mon, 06 Mar 2017 12:00:00 GMT</pubDate>
             <description><![CDATA[<p>CSS 2 SASS/SCSS CONVERTERの紹介</p>
 ]]></description>
@@ -579,8 +579,8 @@ $ less error_log
         </item>
         <item>
             <title><![CDATA[ロリポップレンタルサーバーは外部サーバーからの接続はできない]]></title>
-            <link>https://kryushiki.github.io/protagram//posts/20170305.html</link>
-            <guid>https://kryushiki.github.io/protagram//posts/20170305.html</guid>
+            <link>https://protagram.com/posts/20170305.html</link>
+            <guid>https://protagram.com/posts/20170305.html</guid>
             <pubDate>Sun, 05 Mar 2017 12:00:00 GMT</pubDate>
             <description><![CDATA[<p>MySQLクライアントソフトのsequel proをを使ってロリポップのDBにアクセスしようとしたのですが出来なかったので、サーバー側の設定かと思いロリポップに問い合わせてみました。</p>
 ]]></description>
@@ -588,8 +588,8 @@ $ less error_log
         </item>
         <item>
             <title><![CDATA[VCCWでのWordMoveの概要と設定方法と使い方]]></title>
-            <link>https://kryushiki.github.io/protagram//posts/20170304.html</link>
-            <guid>https://kryushiki.github.io/protagram//posts/20170304.html</guid>
+            <link>https://protagram.com/posts/20170304.html</link>
+            <guid>https://protagram.com/posts/20170304.html</guid>
             <pubDate>Sat, 04 Mar 2017 12:00:00 GMT</pubDate>
             <description><![CDATA[<p>VCCWはvagrantでWordPressの環境を簡単に構築するためのものなのですが、VCCWにはWordMoveという便利ツールが入っています。</p>
 ]]></description>
@@ -650,8 +650,8 @@ production:
         </item>
         <item>
             <title><![CDATA[オススメのWordpressのスターターテーマ紹介]]></title>
-            <link>https://kryushiki.github.io/protagram//posts/20170303.html</link>
-            <guid>https://kryushiki.github.io/protagram//posts/20170303.html</guid>
+            <link>https://protagram.com/posts/20170303.html</link>
+            <guid>https://protagram.com/posts/20170303.html</guid>
             <pubDate>Fri, 03 Mar 2017 12:00:00 GMT</pubDate>
             <description><![CDATA[<p>WrodPressのテーマをゼロから作りたい場合でもスターターテーマを使うことをオススメします。
 またカスタマイズしたい度合いやスキルによってスターターテーマを使い分けることをオススメします。</p>
@@ -660,8 +660,8 @@ production:
         </item>
         <item>
             <title><![CDATA[vagrantでapacheの再起動ができない時の対処法]]></title>
-            <link>https://kryushiki.github.io/protagram//posts/20170302.html</link>
-            <guid>https://kryushiki.github.io/protagram//posts/20170302.html</guid>
+            <link>https://protagram.com/posts/20170302.html</link>
+            <guid>https://protagram.com/posts/20170302.html</guid>
             <pubDate>Thu, 02 Mar 2017 12:00:00 GMT</pubDate>
             <description><![CDATA[<p>vagrant実行中にパソコンを再起動してしまい、vagrantが中断していたのでvagrant upし直してたのですが、サイトが表示されなかったのでapacheを再起動したところstartに失敗しました。</p>
 ]]></description>
@@ -681,8 +681,8 @@ $ sudo kill -9 27520
         </item>
         <item>
             <title><![CDATA[sageの使い方（設定方法）]]></title>
-            <link>https://kryushiki.github.io/protagram//posts/20170301.html</link>
-            <guid>https://kryushiki.github.io/protagram//posts/20170301.html</guid>
+            <link>https://protagram.com/posts/20170301.html</link>
+            <guid>https://protagram.com/posts/20170301.html</guid>
             <pubDate>Wed, 01 Mar 2017 12:00:00 GMT</pubDate>
             <description><![CDATA[<p>WordPressのスターターテーマはいくつかあるのですが、今回は<em>Sage</em>というテーマの設定方法について説明します。</p>
 ]]></description>

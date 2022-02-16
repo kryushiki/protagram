@@ -1,1 +1,0 @@
-import{_ as t,c as e,o as r}from"./app.505c8123.js";const a='{"title":"PROTAGRAM","description":"","frontmatter":{"title":"PROTAGRAM","subtext":"programming blog"},"headers":[],"relativePath":"index.md","lastUpdated":1644988092250}';var i=t({},[["render",function(t,a,i,o,s,d){return r(),e("div")}]]);export{a as __pageData,i as default};
