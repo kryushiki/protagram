@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const { Feed } = require('feed')
 const { load } = require('./posts.data')
-const url = `https://blog.vuejs.org`
+const url = `https://kryushiki.github.io/protagram`
 
 const feed = new Feed({
   title: 'The Vue Point',
